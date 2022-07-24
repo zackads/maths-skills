@@ -1,21 +1,18 @@
 import { QuestionCard } from "./QuestionCard";
 import { AttemptCard } from "./AttemptCard";
 import { Alert, Button, Stack, Typography } from "@mui/material";
-import { CountdownTimer } from "./CountdownTimer";
 import { MathJax } from "better-react-mathjax";
 import { delimit } from "../controller/GameController";
 import { Attempt, isCorrect } from "../model/Question";
 
 interface FeedbackViewProps {
   attempt: Attempt;
-  timeoutSeconds: number;
   livesRemaining: number;
   onContinue: () => void;
 }
 
 export const FeedbackView = ({
   attempt,
-  timeoutSeconds,
   livesRemaining,
   onContinue,
 }: FeedbackViewProps) => {
@@ -33,7 +30,6 @@ export const FeedbackView = ({
           </MathJax>
         </Alert>
       )}
-      <CountdownTimer seconds={timeoutSeconds} />
       <Button autoFocus variant={"contained"} onClick={onContinue}>
         Continue
       </Button>

@@ -33,8 +33,7 @@ export type TGameStates =
 
 export interface GameConfig {
   questions: Question[];
-  questionTimeoutSeconds: number;
-  feedbackTimeoutSeconds: number;
+  timeoutSeconds: number;
   startingLives: number;
 }
 
@@ -60,7 +59,7 @@ export const createGameMachine = (config: GameConfig) => {
         },
         attempting: {
           after: {
-            [config.questionTimeoutSeconds * 1000]: {
+            [config.timeoutSeconds * 1000]: {
               target: "feedback",
             },
           },
@@ -85,24 +84,6 @@ export const createGameMachine = (config: GameConfig) => {
               actions: ["decrementLives"],
             },
           ]),
-          after: {
-            [config.feedbackTimeoutSeconds * 1000]: [
-              {
-                cond: (context) => context.livesRemaining === 0,
-                target: "over",
-                actions: ["archiveCurrentQuestion"],
-              },
-              {
-                cond: (context) => context.remainingQuestions.length === 0,
-                target: "over",
-                actions: ["archiveCurrentQuestion"],
-              },
-              {
-                target: "attempting",
-                actions: ["archiveCurrentQuestion", "loadNextQuestion"],
-              },
-            ],
-          },
           on: {
             CONTINUE: [
               {

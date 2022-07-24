@@ -19,8 +19,7 @@ describe("GameMachine", () => {
         acceptedAnswers: ["sqrt3/2"],
       },
     ],
-    questionTimeoutSeconds: 0,
-    feedbackTimeoutSeconds: 0,
+    timeoutSeconds: 0,
     startingLives: 3,
   };
 
@@ -44,7 +43,7 @@ describe("GameMachine", () => {
 
     const correctAnswer = config.questions[0].acceptedAnswers[0];
     game.send({ type: "INPUT", text: correctAnswer });
-    game.send({ type: "SUBMIT" });
+    game.send({ type: "CONTINUE" });
     expect(game.state.value).toEqual("feedback");
 
     game.send({ type: "CONTINUE" });
@@ -66,7 +65,7 @@ describe("GameMachine", () => {
 
     const incorrectAnswer = "total gobbledegook";
     game.send({ type: "INPUT", text: incorrectAnswer });
-    game.send({ type: "SUBMIT" });
+    game.send({ type: "CONTINUE" });
     expect(game.state.context.livesRemaining).toBe(2);
 
     game.send({ type: "CONTINUE" });

@@ -21,8 +21,7 @@ const Home: NextPage = () => {
         <GameController
           questions={shuffle<Question>(trig0)}
           startingLives={3}
-          questionTimeoutSeconds={5}
-          feedbackTimeoutSeconds={3}
+          timeoutSeconds={5}
         />
       </Box>
     </Container>

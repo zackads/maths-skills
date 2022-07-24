@@ -8,16 +8,14 @@ import { FeedbackView } from "../components/FeedbackView";
 
 const GameController = ({
   questions,
-  questionTimeoutSeconds,
-  feedbackTimeoutSeconds,
+  timeoutSeconds,
   startingLives,
 }: GameConfig) => {
   const [game, sendToGame] = useMachine(
     createGameMachine({
       questions,
       startingLives,
-      questionTimeoutSeconds,
-      feedbackTimeoutSeconds,
+      timeoutSeconds,
     })
   );
 
@@ -26,7 +24,7 @@ const GameController = ({
       return (
         <>
           <AttemptingView
-            timeoutSeconds={questionTimeoutSeconds}
+            timeoutSeconds={timeoutSeconds}
             livesRemaining={game.context.livesRemaining}
             onInput={(input) => sendToGame({ type: "INPUT", text: input })}
             onSubmit={() => sendToGame({ type: "CONTINUE" })}
@@ -41,7 +39,6 @@ const GameController = ({
         <FeedbackView
           attempt={game.context.currentlyAttempting}
           livesRemaining={game.context.livesRemaining}
-          timeoutSeconds={feedbackTimeoutSeconds}
           onContinue={() => sendToGame({ type: "CONTINUE" })}
         />
       );
