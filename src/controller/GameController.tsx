@@ -1,68 +1,43 @@
-import { Alert, Button, Stack, TextField } from "@mui/material";
-import { useRef } from "react";
+import { Alert, Button, Stack } from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 
 import { useMachine } from "@xstate/react";
-import {createGameMachine, GameConfig} from "../model/GameMachine";
+import { createGameMachine, GameConfig } from "../model/GameMachine";
 import { QuestionCard } from "../components/QuestionCard";
 import { AttemptCard } from "../components/AttemptCard";
-import { MathButtons } from "../components/MathButtons";
 import { CountdownTimer } from "../components/CountdownTimer";
 import { ScoreCard } from "../components/ScoreCard";
 import { Intro } from "../components/Intro";
+import { Attempting } from "../components/Attempting";
 
 const GameController = ({
-    questions,
+  questions,
   questionTimeoutSeconds,
   feedbackTimeoutSeconds,
-    startingLives
+  startingLives,
 }: GameConfig) => {
   const [game, sendToGame] = useMachine(
-    createGameMachine({ questions, startingLives, questionTimeoutSeconds, feedbackTimeoutSeconds })
+    createGameMachine({
+      questions,
+      startingLives,
+      questionTimeoutSeconds,
+      feedbackTimeoutSeconds,
+    })
   );
-
-  const inputRef = useRef<HTMLInputElement>(null);
 
   switch (game.value) {
     case "intro":
       return <Intro onContinue={() => sendToGame({ type: "CONTINUE" })} />;
     case "attempting":
       return (
-        <>
-          <Stack spacing={2}>
-            <QuestionCard>{game.context.currentQuestion.text}</QuestionCard>
-            <AttemptCard>{delimit(game.context.playerAnswer)}</AttemptCard>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                sendToGame({ type: "SUBMIT" });
-              }}
-            >
-              <Stack spacing={2}>
-                <TextField
-                  id="answer"
-                  inputRef={inputRef}
-                  fullWidth={true}
-                  value={game.context.playerAnswer}
-                  onChange={(e) =>
-                    sendToGame({ type: "INPUT", text: e.target.value })
-                  }
-                  autoFocus
-                  autoComplete="off"
-                />
-
-                <MathButtons inputRef={inputRef} />
-                <Button onClick={() => sendToGame({ type: "INPUT", text: "" })}>
-                  Clear
-                </Button>
-                <CountdownTimer seconds={questionTimeoutSeconds} />
-                <Button type="submit" variant="contained" fullWidth>
-                  Submit
-                </Button>
-              </Stack>
-            </form>
-          </Stack>
-        </>
+        <Attempting
+          timeoutSeconds={3}
+          onInput={(input) => sendToGame({ type: "INPUT", text: input })}
+          onSubmit={() => sendToGame({ type: "SUBMIT" })}
+          onClear={() => sendToGame({ type: "INPUT", text: "" })}
+        >
+          {game.context.currentQuestion.text}
+        </Attempting>
       );
     case "feedback":
       return (
