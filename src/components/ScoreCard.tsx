@@ -1,17 +1,25 @@
 import { Card, CardContent, ListItemText, Stack } from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 import { delimit } from "../controller/GameController";
-import { Attempt, isCorrect } from "../model/Question";
+import { Attempt, isCorrect, Question } from "../model/Question";
 
-export const ScoreCard = ({ attempts }: { attempts: Attempt[] }) => {
+export const ScoreCard = ({
+  attempts,
+  missed,
+}: {
+  attempts: Attempt[];
+  missed: Question[];
+}) => {
   const numberCorrect = attempts.filter((a) => isCorrect(a)).length;
-  const percentageCorrect = (numberCorrect / attempts.length) * 100;
+  const totalQuestions = attempts.length + missed.length;
+  const percentageCorrect = Math.round((numberCorrect / totalQuestions) * 100);
 
   return (
     <Stack spacing={2}>
       <p>
-        You scored {numberCorrect} out of {attempts.length}. That&apos;s{" "}
-        <b>{percentageCorrect}%</b>.
+        You scored {numberCorrect} out of {attempts.length} attempts.
+        That&apos;s <b>{percentageCorrect}%</b>. (You missed {missed.length}{" "}
+        questions.)
       </p>
       {attempts.map((attempt, i) => {
         return (

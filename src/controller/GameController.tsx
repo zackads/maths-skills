@@ -46,7 +46,10 @@ const GameController = ({
       return (
         <Stack spacing={2}>
           <h2>Game over</h2>
-          <ScoreCard attempts={game.context.previouslyAttempted} />
+          <ScoreCard
+            attempts={game.context.previouslyAttempted}
+            missed={game.context.remainingQuestions}
+          />
         </Stack>
       );
     default:
