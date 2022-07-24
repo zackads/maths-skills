@@ -1,4 +1,4 @@
-import { Button, Stack, TextField } from "@mui/material";
+import { Button, Stack, TextField, Typography } from "@mui/material";
 import { QuestionCard } from "./QuestionCard";
 import { AttemptCard } from "./AttemptCard";
 import { MathButtons } from "./MathButtons";
@@ -9,6 +9,7 @@ import { useRef, useState } from "react";
 interface AttemptingProps {
   children: string;
   timeoutSeconds: number;
+  livesRemaining: number;
   onInput: (input: string) => void;
   onSubmit: () => void;
   onClear: () => void;
@@ -17,6 +18,7 @@ interface AttemptingProps {
 export const AttemptingView = ({
   children,
   timeoutSeconds,
+  livesRemaining,
   onInput,
   onSubmit,
   onClear,
@@ -49,11 +51,21 @@ export const AttemptingView = ({
           />
 
           <MathButtons inputRef={inputRef} />
-          <Button onClick={onClear}>Clear</Button>
+          <Button
+            onClick={() => {
+              setInput("");
+              onClear();
+            }}
+          >
+            Clear
+          </Button>
           <CountdownTimer seconds={timeoutSeconds} />
           <Button type="submit" variant="contained" fullWidth>
             Submit
           </Button>
+          <Typography align={"center"}>
+            Lives remaining: <b>{livesRemaining}</b>
+          </Typography>
         </Stack>
       </form>
     </Stack>

@@ -1,8 +1,7 @@
-import { assign, createMachine, StateNode } from "xstate";
+import { assign, createMachine } from "xstate";
 import { Attempt, isCorrect, Question } from "./Question";
 import { loadNextQuestion } from "./actions/loadNextQuestion";
 import { decrementLives } from "./actions/decrementLives";
-import { Submit } from "./events/Submit";
 import { Continue } from "./events/Continue";
 import { Input } from "./events/Input";
 import { clearPlayerAnswer } from "./actions/clearPlayerAnswer";
@@ -16,13 +15,9 @@ export interface GameContext {
   livesRemaining: number;
 }
 
-export type GameEvent = Input | Submit | Continue;
+export type GameEvent = Input | Continue;
 
 export type TGameStates =
-  | {
-      value: "intro";
-      context: GameContext;
-    }
   | {
       value: "attempting";
       context: GameContext;
@@ -43,15 +38,6 @@ export interface GameConfig {
   startingLives: number;
 }
 
-export interface GameStateSchema {
-  states: {
-    intro: StateNode;
-    attempting: StateNode;
-    feedback: StateNode;
-    over: StateNode;
-  };
-}
-
 export const createGameMachine = (config: GameConfig) => {
   return createMachine<GameContext, GameEvent, TGameStates>(
     {
@@ -65,7 +51,7 @@ export const createGameMachine = (config: GameConfig) => {
         livesRemaining: config.startingLives,
         previouslyAttempted: [],
       },
-      initial: "intro",
+      initial: "attempting",
       states: {
         intro: {
           on: {
@@ -87,7 +73,7 @@ export const createGameMachine = (config: GameConfig) => {
                 }),
               }),
             },
-            SUBMIT: {
+            CONTINUE: {
               target: "feedback",
             },
           },
@@ -146,7 +132,7 @@ export const createGameMachine = (config: GameConfig) => {
         loadNextQuestion,
         archiveCurrentQuestion,
         decrementLives,
-        clearInput: clearPlayerAnswer,
+        clearPlayerAnswer,
       },
     }
   );

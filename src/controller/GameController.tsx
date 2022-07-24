@@ -3,7 +3,6 @@ import { Stack } from "@mui/material";
 import { useMachine } from "@xstate/react";
 import { createGameMachine, GameConfig } from "../model/GameMachine";
 import { ScoreCard } from "../components/ScoreCard";
-import { IntroView } from "../components/IntroView";
 import { AttemptingView } from "../components/AttemptingView";
 import { FeedbackView } from "../components/FeedbackView";
 
@@ -23,23 +22,25 @@ const GameController = ({
   );
 
   switch (game.value) {
-    case "intro":
-      return <IntroView onContinue={() => sendToGame({ type: "CONTINUE" })} />;
     case "attempting":
       return (
-        <AttemptingView
-          timeoutSeconds={questionTimeoutSeconds}
-          onInput={(input) => sendToGame({ type: "INPUT", text: input })}
-          onSubmit={() => sendToGame({ type: "SUBMIT" })}
-          onClear={() => sendToGame({ type: "INPUT", text: "" })}
-        >
-          {game.context.currentlyAttempting.question.text}
-        </AttemptingView>
+        <>
+          <AttemptingView
+            timeoutSeconds={questionTimeoutSeconds}
+            livesRemaining={game.context.livesRemaining}
+            onInput={(input) => sendToGame({ type: "INPUT", text: input })}
+            onSubmit={() => sendToGame({ type: "CONTINUE" })}
+            onClear={() => sendToGame({ type: "INPUT", text: "" })}
+          >
+            {game.context.currentlyAttempting.question.text}
+          </AttemptingView>
+        </>
       );
     case "feedback":
       return (
         <FeedbackView
           attempt={game.context.currentlyAttempting}
+          livesRemaining={game.context.livesRemaining}
           timeoutSeconds={feedbackTimeoutSeconds}
           onContinue={() => sendToGame({ type: "CONTINUE" })}
         />

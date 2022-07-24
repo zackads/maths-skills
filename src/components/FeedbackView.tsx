@@ -1,6 +1,6 @@
 import { QuestionCard } from "./QuestionCard";
 import { AttemptCard } from "./AttemptCard";
-import { Alert, Button, Stack } from "@mui/material";
+import { Alert, Button, Stack, Typography } from "@mui/material";
 import { CountdownTimer } from "./CountdownTimer";
 import { MathJax } from "better-react-mathjax";
 import { delimit } from "../controller/GameController";
@@ -9,12 +9,14 @@ import { Attempt, isCorrect } from "../model/Question";
 interface FeedbackViewProps {
   attempt: Attempt;
   timeoutSeconds: number;
+  livesRemaining: number;
   onContinue: () => void;
 }
 
 export const FeedbackView = ({
   attempt,
   timeoutSeconds,
+  livesRemaining,
   onContinue,
 }: FeedbackViewProps) => {
   return (
@@ -35,6 +37,9 @@ export const FeedbackView = ({
       <Button autoFocus variant={"contained"} onClick={onContinue}>
         Continue
       </Button>
+      <Typography align={"center"}>
+        Lives remaining: <b>{livesRemaining}</b>
+      </Typography>
     </Stack>
   );
 };
