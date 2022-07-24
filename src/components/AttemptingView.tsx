@@ -1,10 +1,10 @@
-import { Button, Stack, TextField, Typography } from "@mui/material";
+import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 import { QuestionCard } from "./QuestionCard";
 import { AttemptCard } from "./AttemptCard";
-import { MathButtons } from "./MathButtons";
 import { CountdownTimer } from "./CountdownTimer";
 import { delimit } from "../controller/GameController";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import { MathJax } from "better-react-mathjax";
 
 interface AttemptingProps {
   children: string;
@@ -50,8 +50,49 @@ export const AttemptingView = ({
             autoComplete="off"
             inputProps={{ inputMode: "numeric" }}
           />
-
-          <MathButtons inputRef={inputRef} />
+          <MathJax>
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item>
+                <Button
+                  sx={{ height: "100%" }}
+                  variant="outlined"
+                  onClick={() => {
+                    onInput(input + "pi");
+                    setInput(input + "pi");
+                    inputRef.current!.focus();
+                  }}
+                >
+                  {"`pi`"}
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  sx={{ height: "100%" }}
+                  variant="outlined"
+                  onClick={() => {
+                    onInput(input + "/");
+                    setInput(input + "/");
+                    inputRef.current!.focus();
+                  }}
+                >
+                  {"`□/□`"}
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  sx={{ height: "100%" }}
+                  variant="outlined"
+                  onClick={() => {
+                    onInput("sqrt" + input);
+                    setInput("sqrt" + input);
+                    inputRef.current!.focus();
+                  }}
+                >
+                  √
+                </Button>
+              </Grid>
+            </Grid>
+          </MathJax>
           <Button
             onClick={() => {
               setInput("");

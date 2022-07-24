@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { Box, Container, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
-import { trig0 } from "../src/data/trigonometry/0-basics";
+import { trig0 } from "../src/data/trigonometry/0-sine";
 import { shuffle } from "../src/shuffle";
 import { Question } from "../src/model/Question";
 const GameController = dynamic(

@@ -1,5 +1,8 @@
 import { Question } from "../../model/Question";
 
+/**
+ * Evaluating the sine function for inputs of npi/6 and npi/4
+ */
 export const trig0: [Question, ...Question[]] = [
   {
     text: "Evaluate `sin 0`",
