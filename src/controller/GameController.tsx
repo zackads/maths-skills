@@ -5,12 +5,12 @@ import { MathJax } from "better-react-mathjax";
 import { useMachine } from "@xstate/react";
 import { createGameMachine } from "../model/GameMachine";
 import { trig0 } from "../data/trigonometry/0-basics";
-import { QuestionCard } from "../view/QuestionCard";
-import { AttemptCard } from "../view/AttemptCard";
-import { MathButtons } from "../view/MathButtons";
-import { CountdownTimer } from "../view/CountdownTimer";
-import { ScoreCard } from "../view/ScoreCard";
-import { Intro } from "../view/Intro";
+import { QuestionCard } from "../components/QuestionCard";
+import { AttemptCard } from "../components/AttemptCard";
+import { MathButtons } from "../components/MathButtons";
+import { CountdownTimer } from "../components/CountdownTimer";
+import { ScoreCard } from "../components/ScoreCard";
+import { Intro } from "../components/Intro";
 
 const GameController = ({
   questionTimeoutSeconds,

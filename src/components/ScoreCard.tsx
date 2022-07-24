@@ -10,7 +10,7 @@ export const ScoreCard = ({ attempts }: { attempts: Attempt[] }) => {
   return (
     <Stack spacing={2}>
       <p>
-        You scored {numberCorrect} out of {attempts.length}. That&amp;apos;s{" "}
+        You scored {numberCorrect} out of {attempts.length}. That&apos;s{" "}
         <b>{percentageCorrect}%</b>.
       </p>
       {attempts.map((attempt, i) => {
