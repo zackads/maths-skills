@@ -48,7 +48,7 @@ export const AttemptingView = ({
             }}
             autoFocus
             autoComplete="off"
-            inputMode="numeric"
+            inputProps={{ inputMode: "numeric" }}
           />
 
           <MathButtons inputRef={inputRef} />
