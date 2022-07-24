@@ -1,10 +1,10 @@
 import { Card, CardContent, ListItemText, Stack } from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 import { delimit } from "../controller/GameController";
-import { Attempt } from "../model/Question";
+import { Attempt, isCorrect } from "../model/Question";
 
 export const ScoreCard = ({ attempts }: { attempts: Attempt[] }) => {
-  const numberCorrect = attempts.filter((a) => a.correct()).length;
+  const numberCorrect = attempts.filter((a) => isCorrect(a)).length;
   const percentageCorrect = (numberCorrect / attempts.length) * 100;
 
   return (
@@ -21,17 +21,19 @@ export const ScoreCard = ({ attempts }: { attempts: Attempt[] }) => {
                 <MathJax>
                   {i + 1}. {attempt.question.text}
                 </MathJax>
-                {attempt.correct() ? (
+                {isCorrect(attempt) ? (
                   <p>
-                    You said <MathJax inline>{delimit(attempt.answer)}</MathJax>
-                    .{"  "}
+                    You said{" "}
+                    <MathJax inline>{delimit(attempt.playerAnswer)}</MathJax>.
+                    {"  "}
                     Correct! ✅
                   </p>
                 ) : (
                   <>
                     <p>
                       You said{" "}
-                      <MathJax inline>{delimit(attempt.answer)}</MathJax> ❌
+                      <MathJax inline>{delimit(attempt.playerAnswer)}</MathJax>{" "}
+                      ❌
                     </p>
                     <p>
                       The correct answer was{" "}

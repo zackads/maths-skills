@@ -1,19 +1,18 @@
-import { assign, createMachine } from "xstate";
-import { Attempt, Question } from "./Question";
+import { assign, createMachine, StateNode } from "xstate";
+import { Attempt, isCorrect, Question } from "./Question";
 import { loadNextQuestion } from "./actions/loadNextQuestion";
 import { decrementLives } from "./actions/decrementLives";
 import { Submit } from "./events/Submit";
 import { Continue } from "./events/Continue";
 import { Input } from "./events/Input";
-import { clearInput } from "./actions/clearInput";
+import { clearPlayerAnswer } from "./actions/clearPlayerAnswer";
 import { archiveCurrentQuestion } from "./actions/archiveCurrentQuestion";
 import { choose } from "xstate/es/actions";
 
 export interface GameContext {
-  playerAnswer: string;
-  currentQuestion: Question;
-  attemptedQuestions: Attempt[];
+  currentlyAttempting: Attempt;
   remainingQuestions: Question[];
+  previouslyAttempted: Attempt[];
   livesRemaining: number;
 }
 
@@ -44,16 +43,27 @@ export interface GameConfig {
   startingLives: number;
 }
 
+export interface GameStateSchema {
+  states: {
+    intro: StateNode;
+    attempting: StateNode;
+    feedback: StateNode;
+    over: StateNode;
+  };
+}
+
 export const createGameMachine = (config: GameConfig) => {
   return createMachine<GameContext, GameEvent, TGameStates>(
     {
       id: "game",
       context: {
-        currentQuestion: config.questions[0],
-        playerAnswer: "",
+        currentlyAttempting: {
+          question: config.questions[0],
+          playerAnswer: "",
+        },
         remainingQuestions: config.questions.slice(1),
         livesRemaining: config.startingLives,
-        attemptedQuestions: [],
+        previouslyAttempted: [],
       },
       initial: "intro",
       states: {
@@ -71,7 +81,10 @@ export const createGameMachine = (config: GameConfig) => {
           on: {
             INPUT: {
               actions: assign({
-                playerAnswer: (context, event) => event.text,
+                currentlyAttempting: (context, event) => ({
+                  ...context.currentlyAttempting,
+                  playerAnswer: event.text,
+                }),
               }),
             },
             SUBMIT: {
@@ -82,10 +95,7 @@ export const createGameMachine = (config: GameConfig) => {
         feedback: {
           entry: choose([
             {
-              cond: (context) =>
-                !context.currentQuestion.acceptedAnswers.includes(
-                  context.playerAnswer
-                ),
+              cond: (context) => !isCorrect(context.currentlyAttempting),
               actions: ["decrementLives"],
             },
           ]),
@@ -136,7 +146,7 @@ export const createGameMachine = (config: GameConfig) => {
         loadNextQuestion,
         archiveCurrentQuestion,
         decrementLives,
-        clearInput,
+        clearInput: clearPlayerAnswer,
       },
     }
   );

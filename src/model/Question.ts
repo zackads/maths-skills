@@ -5,6 +5,13 @@ export interface Question {
 
 export interface Attempt {
   question: Question;
-  answer: string;
-  correct: () => boolean;
+  playerAnswer: string;
 }
+
+export const createBlankAttempt = (question: Question) => ({
+  question,
+  playerAnswer: "",
+});
+
+export const isCorrect = (attempt: Attempt) =>
+  attempt.question.acceptedAnswers.includes(attempt.playerAnswer);

@@ -14,7 +14,7 @@ interface AttemptingProps {
   onClear: () => void;
 }
 
-export const Attempting = ({
+export const AttemptingView = ({
   children,
   timeoutSeconds,
   onInput,

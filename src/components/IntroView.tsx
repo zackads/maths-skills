@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 
-export const Intro = ({ onContinue }: { onContinue: () => void }) => {
+export const IntroView = ({ onContinue }: { onContinue: () => void }) => {
   return (
     <>
       <h2>Trigonometry</h2>
