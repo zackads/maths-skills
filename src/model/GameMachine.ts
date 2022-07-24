@@ -1,4 +1,4 @@
-import { assign, createMachine, StateNode } from "xstate";
+import { assign, createMachine } from "xstate";
 import { Attempt, Question } from "./Question";
 import { loadNextQuestion } from "./actions/loadNextQuestion";
 import { decrementLives } from "./actions/decrementLives";
@@ -37,28 +37,22 @@ export type TGameStates =
       context: GameContext;
     };
 
-export interface GameStates {
-  states: {
-    intro: StateNode;
-    attempting: StateNode;
-    feedback: StateNode;
-    over: StateNode;
-  };
+export interface GameConfig {
+  questions: Question[];
+  questionTimeoutSeconds: number;
+  feedbackTimeoutSeconds: number;
+  startingLives: number;
 }
 
-export const createGameMachine = (
-  questions: [Question, ...Question[]],
-  questionTimeoutSeconds: number,
-  feedbackTimeoutSeconds: number
-) => {
+export const createGameMachine = (config: GameConfig) => {
   return createMachine<GameContext, GameEvent, TGameStates>(
     {
       id: "game",
       context: {
-        currentQuestion: questions[0],
+        currentQuestion: config.questions[0],
         playerAnswer: "",
-        remainingQuestions: questions.slice(1),
-        livesRemaining: 3,
+        remainingQuestions: config.questions.slice(1),
+        livesRemaining: config.startingLives,
         attemptedQuestions: [],
       },
       initial: "intro",
@@ -70,7 +64,7 @@ export const createGameMachine = (
         },
         attempting: {
           after: {
-            [questionTimeoutSeconds * 1000]: {
+            [config.questionTimeoutSeconds * 1000]: {
               target: "feedback",
             },
           },
@@ -89,14 +83,14 @@ export const createGameMachine = (
           entry: choose([
             {
               cond: (context) =>
-                context.currentQuestion.acceptedAnswers.includes(
+                !context.currentQuestion.acceptedAnswers.includes(
                   context.playerAnswer
                 ),
               actions: ["decrementLives"],
             },
           ]),
           after: {
-            [feedbackTimeoutSeconds * 1000]: [
+            [config.feedbackTimeoutSeconds * 1000]: [
               {
                 cond: (context) => context.livesRemaining === 0,
                 target: "over",

@@ -3,8 +3,7 @@ import { useRef } from "react";
 import { MathJax } from "better-react-mathjax";
 
 import { useMachine } from "@xstate/react";
-import { createGameMachine } from "../model/GameMachine";
-import { trig0 } from "../data/trigonometry/0-basics";
+import {createGameMachine, GameConfig} from "../model/GameMachine";
 import { QuestionCard } from "../components/QuestionCard";
 import { AttemptCard } from "../components/AttemptCard";
 import { MathButtons } from "../components/MathButtons";
@@ -13,14 +12,13 @@ import { ScoreCard } from "../components/ScoreCard";
 import { Intro } from "../components/Intro";
 
 const GameController = ({
+    questions,
   questionTimeoutSeconds,
   feedbackTimeoutSeconds,
-}: {
-  questionTimeoutSeconds: number;
-  feedbackTimeoutSeconds: number;
-}) => {
+    startingLives
+}: GameConfig) => {
   const [game, sendToGame] = useMachine(
-    createGameMachine(trig0, questionTimeoutSeconds, feedbackTimeoutSeconds)
+    createGameMachine({ questions, startingLives, questionTimeoutSeconds, feedbackTimeoutSeconds })
   );
 
   const inputRef = useRef<HTMLInputElement>(null);
