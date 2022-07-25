@@ -76,7 +76,7 @@ const Home: NextPage = () => {
           </FormGroup>
           <p>Ready?</p>
           <Link href={`2/play?timeout=${timeout}&lives=${lives}`}>
-            <Button autoFocus fullWidth variant={"contained"}>
+            <Button fullWidth variant={"contained"}>
               Start now
             </Button>
           </Link>
