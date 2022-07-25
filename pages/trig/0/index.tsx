@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import unitCircle from "../../../public/unit_circle.svg";
+import { NavCrumbs } from "../../../src/components/NavCrumbs";
 
 const Home: NextPage = () => {
   const [timeout, setTimeout] = useState(10);
@@ -22,8 +23,12 @@ const Home: NextPage = () => {
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
         <Stack spacing={2}>
+          <NavCrumbs
+            path={[{ Home: "/" }, { Trigonometry: "/trig" }]}
+            current="Level 0: Sine"
+          />
           <Typography variant="h4" component="h1" gutterBottom>
-            Trigonometry
+            The sine function
           </Typography>
           <Typography variant="body1">
             {
