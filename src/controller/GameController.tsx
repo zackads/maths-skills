@@ -45,6 +45,7 @@ const GameController = ({
         <Stack spacing={2}>
           <h2>Game over</h2>
           <ScoreCard
+            timeout={config.timeoutSeconds}
             attempts={game.context.previouslyAttempted}
             missed={game.context.remainingQuestions}
           />

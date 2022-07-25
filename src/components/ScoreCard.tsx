@@ -4,9 +4,11 @@ import { delimit } from "../controller/GameController";
 import { Attempt, isCorrect, Question } from "../model/Question";
 
 export const ScoreCard = ({
+  timeout,
   attempts,
   missed,
 }: {
+  timeout: number;
   attempts: Attempt[];
   missed: Question[];
 }) => {
@@ -17,9 +19,9 @@ export const ScoreCard = ({
   return (
     <Stack spacing={2}>
       <p>
-        You scored {numberCorrect} out of {attempts.length} attempts.
-        That&apos;s <b>{percentageCorrect}%</b>. (You missed {missed.length}{" "}
-        questions.)
+        You scored {numberCorrect} out of {totalQuestions} with {timeout}{" "}
+        seconds per question. That&apos;s <b>{percentageCorrect}%</b>. (You
+        missed {missed.length} questions.)
       </p>
       {attempts.map((attempt, i) => {
         return (
@@ -37,21 +39,17 @@ export const ScoreCard = ({
                     Correct! ✅
                   </p>
                 ) : (
-                  <>
-                    <p>
-                      You said{" "}
-                      <MathJax inline>{delimit(attempt.playerAnswer)}</MathJax>{" "}
-                      ❌
-                    </p>
-                    <p>
-                      The correct answer was{" "}
-                      <MathJax inline>
-                        {attempt.question.acceptedAnswers
-                          .map(delimit)
-                          .join(" or ")}
-                      </MathJax>
-                    </p>
-                  </>
+                  <p>
+                    You said{" "}
+                    <MathJax inline>{delimit(attempt.playerAnswer)}</MathJax>❌
+                    {"  "}. The correct answer was{" "}
+                    <MathJax inline>
+                      {attempt.question.acceptedAnswers
+                        .map(delimit)
+                        .join(" or ")}
+                    </MathJax>
+                    .
+                  </p>
                 )}
               </ListItemText>
             </CardContent>
