@@ -1,0 +1,53 @@
+[
+  {
+    "id": "adding_single_digit_positive_integers",
+    "title": "Adding single-digit positive integers",
+    "mental_representations": [
+      "# John has some beans\n\nThere once was a boy named John."
+    ],
+    "prereqs": []
+  },
+  {
+    "id": "adding_double_digit_positive_integers",
+    "title": "Adding double-digit positive integers",
+    "mental_representations": [
+      "# John has some beans\n\nThere once was a boy named John."
+    ],
+    "prereqs": ["adding_single_digit_positive_integers"]
+  },
+  {
+    "id": "adding_single_digit_negative_integers",
+    "title": "Adding single-digit negative integers",
+    "mental_representations": [
+      "# Someone took away John's beans\n\nJohn has negative beans."
+    ],
+    "prereqs": ["adding_single_digit_positive_integers"]
+  },
+  {
+    "id": "adding_double_digit_negative_integers",
+    "title": "Adding double-digit negative integers",
+    "mental_representations": [
+      "# Someone took away John's beans\n\nJohn has negative beans."
+    ],
+    "prereqs": [
+      "adding_single_digit_negative_integers",
+      "adding_double_digit_positive_integers"
+    ]
+  },
+  {
+    "id": "adding_positive_proper_fractions",
+    "title": "Adding double-digit negative integers",
+    "mental_representations": [
+      "# Someone took away John's beans\n\nJohn has negative beans."
+    ],
+    "prereqs": ["adding_single_digit_positive_integers"]
+  },
+  {
+    "id": "evaluating_sine_functions_less_than_2pi",
+    "title": "Evaluating the sine function for `0 <= x <= 2pi`",
+    "mental_representations": [
+      "# The unit circle\n\nLet me tell you a story about a circle with radius 1 centred on the origin"
+    ],
+    "prereqs": ["adding_single_digit_positive_integers"]
+  }
+]
