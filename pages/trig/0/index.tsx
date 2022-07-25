@@ -3,12 +3,16 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   FormGroup,
   Slider,
+  Stack,
   Typography,
 } from "@mui/material";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
+import unitCircle from "../../../public/unit_circle.svg";
 
 const Home: NextPage = () => {
   const [timeout, setTimeout] = useState(10);
@@ -17,44 +21,60 @@ const Home: NextPage = () => {
   return (
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Trigonometry
-        </Typography>
-        <p>Evaluate the expressions shown as quickly as you can</p>
-        <FormGroup>
-          <Typography gutterBottom>Seconds per question</Typography>
-          <Slider
-            value={timeout}
-            step={1}
-            marks
-            min={1}
-            max={15}
-            valueLabelDisplay="on"
-            size={"small"}
-            onChange={(e) =>
-              setTimeout(Number((e.target as HTMLInputElement).value))
+        <Stack spacing={2}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Trigonometry
+          </Typography>
+          <Typography variant="body1">
+            {
+              "First up, we're going to get fluent with the values of the sine function at multiples of `pi/6` and `pi/4`."
             }
-          />
-          <Typography gutterBottom>Lives</Typography>
-          <Slider
-            value={lives}
-            step={1}
-            marks
-            min={1}
-            max={5}
-            valueLabelDisplay="on"
-            size={"small"}
-            onChange={(e) =>
-              setLives(Number((e.target as HTMLInputElement).value))
+          </Typography>
+          <Typography variant="body1">
+            {
+              "While working through these exercises, hold in your head the unit circle of radius `1` centered at the origin, like this."
             }
-          />
-        </FormGroup>
-        <p>Ready?</p>
-        <Link href={`0/play?timeout=${timeout}&lives=${lives}`}>
-          <Button autoFocus fullWidth variant={"contained"}>
-            Start now
-          </Button>
-        </Link>
+          </Typography>
+          <Image src={unitCircle} alt="Unit circle" />
+          <Typography variant="body1">
+            {"And imagine yourself walking around the unit circle from `0`."}
+          </Typography>
+          <Divider />
+          <FormGroup>
+            <Typography gutterBottom>Seconds per question</Typography>
+            <Slider
+              value={timeout}
+              step={1}
+              marks
+              min={1}
+              max={15}
+              valueLabelDisplay="on"
+              size={"small"}
+              onChange={(e) =>
+                setTimeout(Number((e.target as HTMLInputElement).value))
+              }
+            />
+            <Typography gutterBottom>Lives</Typography>
+            <Slider
+              value={lives}
+              step={1}
+              marks
+              min={1}
+              max={5}
+              valueLabelDisplay="on"
+              size={"small"}
+              onChange={(e) =>
+                setLives(Number((e.target as HTMLInputElement).value))
+              }
+            />
+          </FormGroup>
+          <p>Ready?</p>
+          <Link href={`0/play?timeout=${timeout}&lives=${lives}`}>
+            <Button autoFocus fullWidth variant={"contained"}>
+              Start now
+            </Button>
+          </Link>
+        </Stack>
       </Box>
     </Container>
   );
