@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
+import { GetStaticProps } from "next";
 import { Box, Breadcrumbs, Container, Stack, Typography } from "@mui/material";
-import { MathJax } from "better-react-mathjax";
-import { StyledLink } from "../src/components/NavCrumbs";
+import Skills from "../src/data/skills.json";
+import { SkillsGraph } from "../src/components/SkillsGraph/SkillsGraph";
+import { Skill } from "../src/model/Skill";
 
-const Home: NextPage = () => {
+const Home: NextPage<{ skills: Skill[] }> = ({ skills }) => {
   return (
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
@@ -17,44 +19,17 @@ const Home: NextPage = () => {
           <Typography variant="body1">
             The deliberate practice platform for mathematics.
           </Typography>
-          <Typography variant="h5" component="h2">
-            Training
-          </Typography>
-          <MathJax>
-            <ol>
-              <li>
-                Arithmetic
-                <ol type="i">
-                  <li>Addition of integers</li>
-                  <li>Subtraction of integers</li>
-                </ol>
-              </li>
-              <li>
-                Trigonometry
-                <ol type="i">
-                  <li>
-                    <StyledLink href="/trig/0">
-                      Evaluating the sine function
-                    </StyledLink>
-                  </li>
-                  <li>
-                    <StyledLink href="/trig/1">
-                      Evaluating the cosine function
-                    </StyledLink>
-                  </li>
-                  <li>
-                    <StyledLink href="/trig/2">
-                      Interleaved sine and cosine functions
-                    </StyledLink>
-                  </li>
-                </ol>
-              </li>
-            </ol>
-          </MathJax>
+          <div style={{ height: 800 }}>
+            <SkillsGraph skills={skills} />
+          </div>
         </Stack>
       </Box>
     </Container>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  return { props: { skills: Skills } };
 };
 
 export default Home;

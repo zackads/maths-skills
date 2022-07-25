@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import dynamic from "next/dynamic";
-import { trig0 } from "../../../src/data/trigonometry/0-sine";
+import { trig0 } from "../../../src/data/evaluating-trigonometric-expressions/0-sine";
 import { shuffle } from "../../../src/shuffle";
 import { Question } from "../../../src/model/Question";
 import { useRouter } from "next/router";

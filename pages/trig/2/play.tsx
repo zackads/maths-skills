@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import unitCircle from "../../../public/unit_circle.svg";
 import { useRef } from "react";
-import { trig2 } from "../../../src/data/trigonometry/2-sine-and-cosine";
+import { trig2 } from "../../../src/data/evaluating-trigonometric-expressions/2-sine-and-cosine";
 const GameController = dynamic(
   () => import("../../../src/controller/GameController"),
   {
