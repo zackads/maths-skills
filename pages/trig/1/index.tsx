@@ -14,7 +14,6 @@ import { useState } from "react";
 import Image from "next/image";
 import unitCircle from "../../../public/unit_circle.svg";
 import { NavCrumbs } from "../../../src/components/NavCrumbs";
-import { MathJax } from "better-react-mathjax";
 
 const Home: NextPage = () => {
   const [timeout, setTimeout] = useState(10);
@@ -29,20 +28,18 @@ const Home: NextPage = () => {
             current="Level 1: Cosine"
           />
           <Typography variant="h4" component="h1" gutterBottom>
-            The sine function
+            The cosine function
           </Typography>
-          <MathJax>
-            <Typography variant="body1">
-              {
-                "Alright!  Now you've mastered the sine function, let's do the same for the cosine function."
-              }
-            </Typography>
-            <Typography variant="body1">
-              {
-                "Remember to walk the unit circle in your head while evaluating the functions."
-              }
-            </Typography>
-          </MathJax>
+          <Typography variant="body1">
+            {
+              "Alright!  Now you've mastered the sine function, let's do the same for the cosine function."
+            }
+          </Typography>
+          <Typography variant="body1">
+            {
+              "Remember to walk the unit circle in your head while evaluating the functions."
+            }
+          </Typography>
           <Image src={unitCircle} alt="Unit circle" />
           <Divider />
           <FormGroup>

@@ -61,6 +61,7 @@ const Home: NextPage = () => {
               onChange={(e) =>
                 setTimeout(Number((e.target as HTMLInputElement).value))
               }
+              tabIndex={1}
             />
             <Typography gutterBottom>Lives</Typography>
             <Slider
@@ -74,11 +75,12 @@ const Home: NextPage = () => {
               onChange={(e) =>
                 setLives(Number((e.target as HTMLInputElement).value))
               }
+              tabIndex={2}
             />
           </FormGroup>
           <p>Ready?</p>
           <Link href={`0/play?timeout=${timeout}&lives=${lives}`}>
-            <Button fullWidth variant={"contained"}>
+            <Button fullWidth variant={"contained"} tabIndex={3}>
               Start now
             </Button>
           </Link>
