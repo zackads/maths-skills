@@ -14,7 +14,7 @@ export const AttemptCard = ({ children }: { children: string }) => {
     <Card>
       <CardContent>
         <Typography align="center">
-          <MathJax>{children}</MathJax>
+          <MathJax dynamic>{children}</MathJax>
         </Typography>
       </CardContent>
     </Card>

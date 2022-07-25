@@ -62,11 +62,11 @@ export const trig0: [Question, ...Question[]] = [
     acceptedAnswers: ["-sqrt3/2"],
   },
   {
-    text: "Evaluate `sin((7pi))/4`",
+    text: "Evaluate `sin((7pi)/4)`",
     acceptedAnswers: ["-sqrt2/2"],
   },
   {
-    text: "Evaluate `sin((11pi)/6`",
+    text: "Evaluate `sin((11pi)/6)`",
     acceptedAnswers: ["-1/2"],
   },
 ];
