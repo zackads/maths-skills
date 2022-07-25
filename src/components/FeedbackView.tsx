@@ -4,15 +4,18 @@ import { Alert, Button, Stack, Typography } from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 import { delimit } from "../controller/GameController";
 import { Attempt, isCorrect } from "../model/Question";
+import React from "react";
 
 interface FeedbackViewProps {
   attempt: Attempt;
+  mentalRepresentation: React.ReactElement;
   livesRemaining: number;
   onContinue: () => void;
 }
 
 export const FeedbackView = ({
   attempt,
+  mentalRepresentation,
   livesRemaining,
   onContinue,
 }: FeedbackViewProps) => {
@@ -30,6 +33,7 @@ export const FeedbackView = ({
           </MathJax>
         </Alert>
       )}
+      {mentalRepresentation}
       <Button autoFocus variant={"contained"} onClick={onContinue}>
         Continue
       </Button>

@@ -5,26 +5,23 @@ import { createGameMachine, GameConfig } from "../model/GameMachine";
 import { ScoreCard } from "../components/ScoreCard";
 import { AttemptingView } from "../components/AttemptingView";
 import { FeedbackView } from "../components/FeedbackView";
+import React from "react";
 
 const GameController = ({
-  questions,
-  timeoutSeconds,
-  startingLives,
-}: GameConfig) => {
-  const [game, sendToGame] = useMachine(
-    createGameMachine({
-      questions,
-      startingLives,
-      timeoutSeconds,
-    })
-  );
+  config,
+  mentalRepresentation,
+}: {
+  config: GameConfig;
+  mentalRepresentation: React.ReactElement;
+}) => {
+  const [game, sendToGame] = useMachine(createGameMachine(config));
 
   switch (game.value) {
     case "attempting":
       return (
         <>
           <AttemptingView
-            timeoutSeconds={timeoutSeconds}
+            timeoutSeconds={config.timeoutSeconds}
             livesRemaining={game.context.livesRemaining}
             onInput={(input) => sendToGame({ type: "INPUT", text: input })}
             onSubmit={() => sendToGame({ type: "CONTINUE" })}
@@ -39,6 +36,7 @@ const GameController = ({
         <FeedbackView
           attempt={game.context.currentlyAttempting}
           livesRemaining={game.context.livesRemaining}
+          mentalRepresentation={mentalRepresentation}
           onContinue={() => sendToGame({ type: "CONTINUE" })}
         />
       );
