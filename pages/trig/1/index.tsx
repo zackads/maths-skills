@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         <Stack spacing={2}>
           <NavCrumbs
             path={[{ Home: "/" }, { Trigonometry: "/trig" }]}
-            current="Level 0: Sine"
+            current="Level 1: Cosine"
           />
           <Typography variant="h4" component="h1" gutterBottom>
             The sine function
@@ -34,19 +34,16 @@ const Home: NextPage = () => {
           <MathJax>
             <Typography variant="body1">
               {
-                "First up, we're going to get fluent with the values of the sine function at multiples of `pi/6` and `pi/4`."
+                "Alright!  Now you've mastered the sine function, let's do the same for the cosine function."
               }
             </Typography>
             <Typography variant="body1">
               {
-                "While working through these exercises, hold in your head the unit circle of radius `1` centered at the origin, like this."
+                "Remember to walk the unit circle in your head while evaluating the functions."
               }
             </Typography>
-            <Image src={unitCircle} alt="Unit circle" />
-            <Typography variant="body1">
-              {"And imagine yourself walking around the unit circle from `0`."}
-            </Typography>
           </MathJax>
+          <Image src={unitCircle} alt="Unit circle" />
           <Divider />
           <FormGroup>
             <Typography gutterBottom>Seconds per question</Typography>
@@ -77,7 +74,7 @@ const Home: NextPage = () => {
             />
           </FormGroup>
           <p>Ready?</p>
-          <Link href={`0/play?timeout=${timeout}&lives=${lives}`}>
+          <Link href={`1/play?timeout=${timeout}&lives=${lives}`}>
             <Button autoFocus fullWidth variant={"contained"}>
               Start now
             </Button>

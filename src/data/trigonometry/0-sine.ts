@@ -69,4 +69,8 @@ export const trig0: [Question, ...Question[]] = [
     text: "Evaluate `sin((11pi)/6)`",
     acceptedAnswers: ["-1/2"],
   },
+  {
+    text: "Evaluate `sin(2pi)`",
+    acceptedAnswers: ["0"],
+  },
 ];

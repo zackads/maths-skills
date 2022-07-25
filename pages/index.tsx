@@ -42,6 +42,11 @@ const Home: NextPage = () => {
                       Evaluating the cosine function
                     </StyledLink>
                   </li>
+                  <li>
+                    <StyledLink href="/trig/2">
+                      Interleaved sine and cosine functions
+                    </StyledLink>
+                  </li>
                 </ol>
               </li>
             </ol>
