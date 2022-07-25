@@ -1,0 +1,124 @@
+[
+  {
+    "text": "Evaluate `sin 0`",
+    "level": 0,
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "0"
+    ]
+  },
+  {
+    "text": "Evaluate `sin(pi/6)`",
+    "level": 0,
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "1/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin(pi/4)`",
+    "level": 0,
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "sqrt2/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin(pi/3)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "sqrt3/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin(pi/2)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "1"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((2pi)/3)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "sqrt3/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((3pi)/4)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "sqrt2/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((5pi)/6)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "1/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin pi`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "0"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((7pi)/6)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "-1/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((5pi)/4)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "-sqrt2/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((4pi)/3)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "-sqrt3/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((3pi)/2)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "-1"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((5pi)/3)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "-sqrt3/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((7pi)/4)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "-sqrt2/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin((11pi)/6)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "-1/2"
+    ]
+  },
+  {
+    "text": "Evaluate `sin(2pi)`",
+    "required_skills": "evaluating_sine_functions_less_than_2pi",
+    "acceptedAnswers": [
+      "0"
+    ]
+  }
+]
