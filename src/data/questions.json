@@ -168,5 +168,90 @@
     "text": "Evaluate `cos(2pi)`",
     "skillId": "evaluating_cosine",
     "acceptedAnswers": ["1"]
+  },
+  {
+    "text": "Evaluate `tan 0`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["0"]
+  },
+  {
+    "text": "Evaluate `tan(pi/6)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["sqrt3/3"]
+  },
+  {
+    "text": "Evaluate `tan(pi/4)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["1"]
+  },
+  {
+    "text": "Evaluate `tan(pi/3)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["sqrt3"]
+  },
+  {
+    "text": "Evaluate `tan(pi/2)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["undefined"]
+  },
+  {
+    "text": "Evaluate `tan((2pi)/3)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["-sqrt3/3"]
+  },
+  {
+    "text": "Evaluate `tan((3pi)/4)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["-1"]
+  },
+  {
+    "text": "Evaluate `tan((5pi)/6)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["-sqrt3/3"]
+  },
+  {
+    "text": "Evaluate `tan pi`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["0"]
+  },
+  {
+    "text": "Evaluate `tan((7pi)/6)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["sqrt3/3"]
+  },
+  {
+    "text": "Evaluate `tan((5pi)/4)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["1"]
+  },
+  {
+    "text": "Evaluate `tan((4pi)/3)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["sqrt3"]
+  },
+  {
+    "text": "Evaluate `tan((3pi)/2)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["undefined"]
+  },
+  {
+    "text": "Evaluate `tan((5pi)/3)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["-sqrt3"]
+  },
+  {
+    "text": "Evaluate `tan((7pi)/4)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["-1"]
+  },
+  {
+    "text": "Evaluate `tan((11pi)/6)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["-sqrt3/3"]
+  },
+  {
+    "text": "Evaluate `tan(2pi)`",
+    "skillId": "evaluating_tangent",
+    "acceptedAnswers": ["0"]
   }
 ]

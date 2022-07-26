@@ -50,7 +50,6 @@ const SkillHome = ({
               <MentalRepresentations skill={skill} />
             </>
           )}
-          <Typography variant="body1">{skill.prereqs}</Typography>
           <Divider />
           <FormGroup>
             <Typography gutterBottom>Seconds per question</Typography>

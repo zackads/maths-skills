@@ -8,5 +8,15 @@
     "title": "The unit circle",
     "skillId": "evaluating_cosine",
     "bodyMarkdown": "Hold in your head the unit circle of radius `1` centered at the origin, like this.\n\n![The unit circle](/assets/images/unit_circle.svg)\n\nAs you think about a question, first pinpoint exactly where the point created by the angle is on the circumference of the unit circle.  The `x` coordinate of that point is the value of the cosine function at the given angle."
+  },
+  {
+    "title": "Recalling sine and cosine",
+    "skillId": "evaluating_tangent",
+    "bodyMarkdown": "The tangent function is defined to be `(sin A)/(cos A)` for some angle A.  So you need to fluently evaluate the sine and cosine function.\n\nIf you're struggling, do some deliberate practice of those skills."
+  },
+  {
+    "title": "Imagining the gradient of the line",
+    "skillId": "evaluating_tangent",
+    "bodyMarkdown": "The tangent function of an angle is also the gradient of the line created by that angle with the horizontal.\n\nSo picture the shape of the line created by the angle and ask yourself what its gradient must be.\n\nFor example, we can tell instantly that the line y = x has a gradient of 1, so `tan pi/4 = 1`."
   }
 ]
