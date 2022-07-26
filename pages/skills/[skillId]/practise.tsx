@@ -1,13 +1,14 @@
 import { Box, Container, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { Skill } from "../../src/model/Skill";
+import { Skill } from "../../../src/model/Skill";
 import { ParsedUrlQuery } from "querystring";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getAllSkills } from "../../src/data/getAllSkills";
-import { getSkillById } from "../../src/data/getSkillById";
+import { getAllSkills } from "../../../src/data/getAllSkills";
+import { getSkillById } from "../../../src/data/getSkillById";
+import { SkillNavCrumbs } from "../../../src/components/SkillNavCrumbs";
 const GameController = dynamic(
-  () => import("../../src/controller/GameController"),
+  () => import("../../../src/controller/GameController"),
   {
     ssr: false,
   }
@@ -22,6 +23,7 @@ const Practise = ({
   return (
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
+        <SkillNavCrumbs />
         <Typography variant="h4" component="h1" gutterBottom>
           {skill.title}
         </Typography>

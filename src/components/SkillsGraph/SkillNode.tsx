@@ -1,4 +1,4 @@
-import { StyledLink } from "../NavCrumbs";
+import { StyledLink } from "../SkillNavCrumbs";
 import { Skill } from "../../model/Skill";
 import { Card, CardContent } from "@mui/material";
 import { Handle, Position } from "react-flow-renderer";
@@ -10,7 +10,9 @@ export const SkillNode = ({ data }: { data: { skill: Skill } }) => {
       <Handle type={"source"} position={Position.Bottom} hidden />
       <Card sx={{ maxWidth: 200, maxHeight: 200 }}>
         <CardContent>
-          <StyledLink href={`/${data.skill.id}`}>{data.skill.title}</StyledLink>
+          <StyledLink href={`/skills/${data.skill.id}`}>
+            {data.skill.title}
+          </StyledLink>
         </CardContent>
       </Card>
     </>

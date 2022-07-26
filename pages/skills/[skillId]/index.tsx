@@ -9,14 +9,14 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { NavCrumbs } from "../../src/components/NavCrumbs";
-import { Skill } from "../../src/model/Skill";
+import { SkillNavCrumbs } from "../../../src/components/SkillNavCrumbs";
+import { Skill } from "../../../src/model/Skill";
 import { ParsedUrlQuery } from "querystring";
 import Link from "next/link";
 import { useState } from "react";
-import { MentalRepresentations } from "../../src/components/MentalRepresentations";
-import { getSkillById } from "../../src/data/getSkillById";
-import { getAllSkills } from "../../src/data/getAllSkills";
+import { MentalRepresentations } from "../../../src/components/MentalRepresentations";
+import { getSkillById } from "../../../src/data/getSkillById";
+import { getAllSkills } from "../../../src/data/getAllSkills";
 
 const SkillHome = ({
   skill,
@@ -28,7 +28,7 @@ const SkillHome = ({
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
         <Stack spacing={2}>
-          <NavCrumbs path={[{ Home: "/" }]} current={skill.title} />
+          <SkillNavCrumbs />
           <Typography variant="h4" component="h1" gutterBottom>
             {skill.title}
           </Typography>
