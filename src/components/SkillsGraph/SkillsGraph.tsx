@@ -1,4 +1,9 @@
-import ReactFlow, { Node, Edge } from "react-flow-renderer";
+import ReactFlow, {
+  Background,
+  BackgroundVariant,
+  Edge,
+  Node,
+} from "react-flow-renderer";
 import { Skill } from "../../model/Skill";
 import Elk, { ElkNode, ElkPrimitiveEdge } from "elkjs";
 import { toEdges } from "./toEdges";
@@ -76,6 +81,8 @@ export function SkillsGraph({ skills }: { skills: Skill[] }) {
       fitViewOptions={{
         padding: 0.2,
       }}
-    />
+    >
+      <Background variant={BackgroundVariant.Dots} gap={30} size={1} />
+    </ReactFlow>
   );
 }
