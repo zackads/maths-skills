@@ -23,6 +23,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-flow-renderer": "^10.3.12",
+    "react-markdown": "^8.0.3",
     "xstate": "^4.32.1"
   },
   "devDependencies": {
