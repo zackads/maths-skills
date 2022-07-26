@@ -197,7 +197,7 @@
   {
     "text": "Evaluate `tan((2pi)/3)`",
     "skillId": "evaluating_tangent",
-    "acceptedAnswers": ["-sqrt3/3"]
+    "acceptedAnswers": ["-sqrt3"]
   },
   {
     "text": "Evaluate `tan((3pi)/4)`",
