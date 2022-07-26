@@ -2,7 +2,7 @@
   {
     "id": "evaluating_sine",
     "title": "Evaluating sine",
-    "description": "First up, we're going to get fluent with the values of the sine function at multiples of `pi/6` and `pi/4`.",
+    "description": "We're going to get fluent with the values of the sine function at multiples of `pi/6` and `pi/4`.",
     "prereqs": []
   },
   {
@@ -14,7 +14,7 @@
   {
     "id": "evaluating_cosine",
     "title": "Evaluating cosine",
-    "description": "TODO",
+    "description": "We're going to get fluent with the values of the cosine function at multiples of `pi/6` and `pi/4`.",
     "prereqs": []
   },
   {
