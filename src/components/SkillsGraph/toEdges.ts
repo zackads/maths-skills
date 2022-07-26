@@ -10,7 +10,7 @@ export const toEdges = (skills: Skill[]) => {
         id: `${prereq}->${skill.id}`,
         source: prereq,
         target: skill.id,
-        type: "smoothstep",
+        type: "floating",
       });
     });
   });
