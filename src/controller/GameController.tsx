@@ -1,27 +1,34 @@
 import { Stack } from "@mui/material";
 
 import { useMachine } from "@xstate/react";
-import { createGameMachine, GameConfig } from "../model/GameMachine";
+import { createGameMachine } from "../model/GameMachine";
 import { ScoreCard } from "../components/ScoreCard";
 import { AttemptingView } from "../components/AttemptingView";
 import { FeedbackView } from "../components/FeedbackView";
 import React from "react";
+import { MentalRepresentations } from "../components/MentalRepresentations";
+import { shuffle } from "../shuffle";
+import { Skill } from "../model/Skill";
 
 const GameController = ({
-  config,
-  mentalRepresentation,
+  skill,
+  timeoutSeconds,
+  startingLives,
 }: {
-  config: GameConfig;
-  mentalRepresentation: React.ReactElement;
+  skill: Skill;
+  timeoutSeconds: number;
+  startingLives: number;
 }) => {
-  const [game, sendToGame] = useMachine(createGameMachine(config));
+  const [game, sendToGame] = useMachine(
+    createGameMachine(shuffle(skill.questions), timeoutSeconds, startingLives)
+  );
 
   switch (game.value) {
     case "attempting":
       return (
         <>
           <AttemptingView
-            timeoutSeconds={config.timeoutSeconds}
+            timeoutSeconds={timeoutSeconds}
             livesRemaining={game.context.livesRemaining}
             onInput={(input) => sendToGame({ type: "INPUT", text: input })}
             onSubmit={() => sendToGame({ type: "CONTINUE" })}
@@ -36,16 +43,17 @@ const GameController = ({
         <FeedbackView
           attempt={game.context.currentlyAttempting}
           livesRemaining={game.context.livesRemaining}
-          mentalRepresentation={mentalRepresentation}
           onContinue={() => sendToGame({ type: "CONTINUE" })}
-        />
+        >
+          <MentalRepresentations skill={skill} />
+        </FeedbackView>
       );
     case "over":
       return (
         <Stack spacing={2}>
           <h2>Game over</h2>
           <ScoreCard
-            timeout={config.timeoutSeconds}
+            timeout={timeoutSeconds}
             attempts={game.context.previouslyAttempted}
             missed={game.context.remainingQuestions}
           />

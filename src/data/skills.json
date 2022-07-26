@@ -2,49 +2,37 @@
   {
     "id": "evaluating_sine",
     "title": "Evaluating sine",
-    "mental_representations": [
-      "# The unit circle\n\nLet me tell you a story about a circle with radius 1 centred on the origin"
-    ],
+    "description": "First up, we're going to get fluent with the values of the sine function at multiples of `pi/6` and `pi/4`.",
     "prereqs": []
   },
   {
     "id": "sine_periodicity",
     "title": "Sine's periodicity",
-    "mental_representations": [
-      "# The unit circle\n\nLet me tell you a story about a circle with radius 1 centred on the origin"
-    ],
+    "description": "TODO",
     "prereqs": ["evaluating_sine"]
   },
   {
     "id": "evaluating_cosine",
     "title": "Evaluating cosine",
-    "mental_representations": [
-      "# The unit circle\n\nLet me tell you a story about a circle with radius 1 centred on the origin"
-    ],
+    "description": "TODO",
     "prereqs": []
   },
   {
     "id": "cosine_periodicity",
     "title": "Cosine's periodicity",
-    "mental_representations": [
-      "# The unit circle\n\nLet me tell you a story about a circle with radius 1 centred on the origin"
-    ],
+    "description": "TODO",
     "prereqs": ["evaluating_cosine"]
   },
   {
     "id": "evaluating_tangent",
     "title": "Evaluating tangent",
-    "mental_representations": [
-      "# The unit circle\n\nLet me tell you a story about a circle with radius 1 centred on the origin"
-    ],
+    "description": "TODO",
     "prereqs": ["evaluating_sine", "evaluating_cosine"]
   },
   {
     "id": "tangent_periodicity",
     "title": "Tangent's periodicity",
-    "mental_representations": [
-      "# The unit circle\n\nLet me tell you a story about a circle with radius 1 centred on the origin"
-    ],
+    "description": "TODO",
     "prereqs": ["evaluating_tangent"]
   }
 ]
