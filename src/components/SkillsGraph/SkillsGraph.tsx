@@ -5,16 +5,15 @@ import { toEdges } from "./toEdges";
 import { toNodes } from "./toNodes";
 import { useEffect, useState } from "react";
 import { SkillNode } from "./SkillNode";
+import FloatingEdge from "./FloatingEdge";
 
 const DEFAULT_WIDTH = 200;
 const DEFAULT_HEIGHT = 200;
 
 const elk = new Elk({
   defaultLayoutOptions: {
-    "elk.algorithm": "layered",
-    "elk.direction": "DOWN",
-    "elk.spacing.nodeNode": "75",
-    "elk.layered.spacing.nodeNodeBetweenLayers": "75",
+    "elk.algorithm": "force",
+    "elk.spacing.nodeNode": "1",
   },
 });
 
@@ -56,6 +55,8 @@ const layoutNodes = async (skills: Skill[]): Promise<Node[]> => {
 
 const nodeTypes = { skill: SkillNode };
 
+const edgeTypes = { floating: FloatingEdge };
+
 export function SkillsGraph({ skills }: { skills: Skill[] }) {
   const [nodes, setNodes] = useState<Node[]>([]);
 
@@ -68,6 +69,7 @@ export function SkillsGraph({ skills }: { skills: Skill[] }) {
   return (
     <ReactFlow
       nodeTypes={nodeTypes}
+      edgeTypes={edgeTypes}
       nodes={nodes}
       edges={toEdges(skills)}
       fitView
