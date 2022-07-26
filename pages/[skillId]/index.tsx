@@ -10,11 +10,13 @@ import {
   Typography,
 } from "@mui/material";
 import { NavCrumbs } from "../../src/components/NavCrumbs";
-import skills from "../../src/data/skills.json";
 import { Skill } from "../../src/model/Skill";
 import { ParsedUrlQuery } from "querystring";
 import Link from "next/link";
 import { useState } from "react";
+import { MentalRepresentations } from "../../src/components/MentalRepresentations";
+import { getSkillById } from "../../src/data/getSkillById";
+import { getAllSkills } from "../../src/data/getAllSkills";
 
 const SkillHome = ({
   skill,
@@ -30,9 +32,24 @@ const SkillHome = ({
           <Typography variant="h4" component="h1" gutterBottom>
             {skill.title}
           </Typography>
-          <Typography variant="body1">
-            {skill.mental_representations}
-          </Typography>
+          <Typography>{skill.description}</Typography>
+          {skill.mentalRepresentations.length > 0 && (
+            <>
+              <Typography variant="h5" component="h2">
+                Mental representations
+              </Typography>
+              <Typography>
+                While practising this skill, deliberately try and hold these
+                mental representations in your head as you think about each
+                question.{" "}
+              </Typography>
+              <Typography>
+                If you get a question wrong, re-visit and update your mental
+                representation.
+              </Typography>
+              <MentalRepresentations skill={skill} />
+            </>
+          )}
           <Typography variant="body1">{skill.prereqs}</Typography>
           <Divider />
           <FormGroup>
@@ -92,14 +109,14 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 }) => {
   return {
     props: {
-      skill: skills.find((skill) => skill.id === params!.skillId) as Skill,
+      skill: getSkillById(params!.skillId),
     },
   };
 };
 
 export async function getStaticPaths() {
   return {
-    paths: skills.map((skill) => ({ params: { skillId: skill.id } })),
+    paths: getAllSkills().map((skill) => ({ params: { skillId: skill.id } })),
     fallback: false,
   };
 }
