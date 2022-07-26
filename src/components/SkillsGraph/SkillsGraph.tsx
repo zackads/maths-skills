@@ -4,9 +4,10 @@ import Elk, { ElkNode, ElkPrimitiveEdge } from "elkjs";
 import { toEdges } from "./toEdges";
 import { toNodes } from "./toNodes";
 import { useEffect, useState } from "react";
+import { SkillNode } from "./SkillNode";
 
-const DEFAULT_WIDTH = 75;
-const DEFAULT_HEIGHT = 75;
+const DEFAULT_WIDTH = 200;
+const DEFAULT_HEIGHT = 200;
 
 const elk = new Elk({
   defaultLayoutOptions: {
@@ -53,6 +54,8 @@ const layoutNodes = async (skills: Skill[]): Promise<Node[]> => {
   });
 };
 
+const nodeTypes = { skill: SkillNode };
+
 export function SkillsGraph({ skills }: { skills: Skill[] }) {
   const [nodes, setNodes] = useState<Node[]>([]);
 
@@ -64,6 +67,7 @@ export function SkillsGraph({ skills }: { skills: Skill[] }) {
 
   return (
     <ReactFlow
+      nodeTypes={nodeTypes}
       nodes={nodes}
       edges={toEdges(skills)}
       fitView
