@@ -3,20 +3,19 @@ import { AttemptCard } from "./AttemptCard";
 import { Alert, Button, Stack, Typography } from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 import { delimit } from "../controller/GameController";
-import { Attempt, isCorrect } from "../model/Question";
 import React from "react";
 import { Attempt, isCorrect } from "../model/Attempt";
 
 interface FeedbackViewProps {
+  children: React.ReactElement;
   attempt: Attempt;
-  mentalRepresentation: React.ReactElement;
   livesRemaining: number;
   onContinue: () => void;
 }
 
 export const FeedbackView = ({
+  children,
   attempt,
-  mentalRepresentation,
   livesRemaining,
   onContinue,
 }: FeedbackViewProps) => {
@@ -34,7 +33,7 @@ export const FeedbackView = ({
           </MathJax>
         </Alert>
       )}
-      {mentalRepresentation}
+      {children}
       <Button autoFocus variant={"contained"} onClick={onContinue}>
         Continue
       </Button>
