@@ -7,8 +7,6 @@ import { Input } from "./events/Input";
 import { clearPlayerAnswer } from "./actions/clearPlayerAnswer";
 import { archiveCurrentQuestion } from "./actions/archiveCurrentQuestion";
 import { choose } from "xstate/es/actions";
-import { Skill } from "./Skill";
-import { shuffle } from "../shuffle";
 import { Attempt, isCorrect } from "./Attempt";
 
 export interface GameContext {
@@ -34,23 +32,21 @@ export type TGameStates =
       context: GameContext;
     };
 
-export interface GameConfig {
-  questions: Question[];
-  timeoutSeconds: number;
-  startingLives: number;
-}
-
-export const createGameMachine = (config: GameConfig) => {
+export const createGameMachine = (
+  questions: Question[],
+  timeoutSeconds: number,
+  startingLives: number
+) => {
   return createMachine<GameContext, GameEvent, TGameStates>(
     {
       id: "game",
       context: {
         currentlyAttempting: {
-          question: config.questions[0],
+          question: questions[0],
           playerAnswer: "",
         },
-        remainingQuestions: config.questions.slice(1),
-        livesRemaining: config.startingLives,
+        remainingQuestions: questions.slice(1),
+        livesRemaining: startingLives,
         previouslyAttempted: [],
       },
       initial: "attempting",
@@ -62,7 +58,7 @@ export const createGameMachine = (config: GameConfig) => {
         },
         attempting: {
           after: {
-            [config.timeoutSeconds * 1000]: {
+            [timeoutSeconds * 1000]: {
               target: "feedback",
             },
           },
