@@ -1,24 +1,11 @@
-import Image from "next/image";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Container,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import unitCircle from "../../public/unit_circle.svg";
-import { useRef } from "react";
 import { Skill } from "../../src/model/Skill";
 import { ParsedUrlQuery } from "querystring";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import skills from "../../src/data/skills.json";
-import questions from "../../src/data/questions.json";
-import { shuffle } from "../../src/shuffle";
-import { Question } from "../../src/model/Question";
+import { getAllSkills } from "../../src/data/getAllSkills";
+import { getSkillById } from "../../src/data/getSkillById";
 const GameController = dynamic(
   () => import("../../src/controller/GameController"),
   {
@@ -28,7 +15,6 @@ const GameController = dynamic(
 
 const Practise = ({
   skill,
-  questions,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const { lives = "3", timeout = "10" } = router.query;
@@ -39,14 +25,11 @@ const Practise = ({
         <Typography variant="h4" component="h1" gutterBottom>
           {skill.title}
         </Typography>
-        {questions.length > 0 ? (
+        {skill.questions.length > 0 ? (
           <GameController
-            config={{
-              questions: shuffle<Question>(questions),
-              startingLives: Number(lives),
-              timeoutSeconds: Number(timeout),
-            }}
-            mentalRepresentation={<UnitCircleAccordion />}
+            skill={skill}
+            startingLives={Number(lives)}
+            timeoutSeconds={Number(timeout)}
           />
         ) : (
           <Typography>
@@ -58,37 +41,8 @@ const Practise = ({
   );
 };
 
-const UnitCircleAccordion = () => {
-  const myRef = useRef<HTMLDivElement>(null);
-
-  return (
-    <Accordion
-      onChange={() => {
-        setTimeout(
-          () =>
-            window.scrollTo({
-              behavior: "smooth",
-              top: document.body.scrollHeight,
-              left: 0,
-            }),
-          300
-        );
-      }}
-    >
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        Take another look at the unit circle
-      </AccordionSummary>
-      <AccordionDetails>
-        <Image src={unitCircle} alt="Unit circle" />
-        <div ref={myRef} />
-      </AccordionDetails>
-    </Accordion>
-  );
-};
-
 type Props = {
   skill: Skill;
-  questions: Question[];
 };
 
 interface Params extends ParsedUrlQuery {
@@ -98,25 +52,16 @@ interface Params extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
-  const skill = skills.find((skill) => skill.id === params!.skillId) as Skill;
-  const relevantQuestions = questions.filter((question) =>
-    question.required_skills.includes(skill.id)
-  );
-
-  console.log("FoundQs: ", relevantQuestions);
-
   return {
     props: {
-      skill,
-      questions: relevantQuestions,
+      skill: getSkillById(params!.skillId),
     },
   };
 };
 
 export async function getStaticPaths() {
-  console.log(skills.map((skill) => ({ params: { skillId: skill.id } })));
   return {
-    paths: skills.map((skill) => ({ params: { skillId: skill.id } })),
+    paths: getAllSkills().map((skill) => ({ params: { skillId: skill.id } })),
     fallback: false,
   };
 }
