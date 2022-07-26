@@ -5,6 +5,7 @@ import { MathJax } from "better-react-mathjax";
 import { delimit } from "../controller/GameController";
 import { Attempt, isCorrect } from "../model/Question";
 import React from "react";
+import { Attempt, isCorrect } from "../model/Attempt";
 
 interface FeedbackViewProps {
   attempt: Attempt;

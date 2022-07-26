@@ -1,7 +1,8 @@
 import { Card, CardContent, ListItemText, Stack } from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 import { delimit } from "../controller/GameController";
-import { Attempt, isCorrect, Question } from "../model/Question";
+import { Question } from "../model/Question";
+import { Attempt, isCorrect } from "../model/Attempt";
 
 export const ScoreCard = ({
   timeout,

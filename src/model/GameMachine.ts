@@ -1,5 +1,5 @@
 import { assign, createMachine } from "xstate";
-import { Attempt, isCorrect, Question } from "./Question";
+import { Question } from "./Question";
 import { loadNextQuestion } from "./actions/loadNextQuestion";
 import { decrementLives } from "./actions/decrementLives";
 import { Continue } from "./events/Continue";
@@ -7,6 +7,9 @@ import { Input } from "./events/Input";
 import { clearPlayerAnswer } from "./actions/clearPlayerAnswer";
 import { archiveCurrentQuestion } from "./actions/archiveCurrentQuestion";
 import { choose } from "xstate/es/actions";
+import { Skill } from "./Skill";
+import { shuffle } from "../shuffle";
+import { Attempt, isCorrect } from "./Attempt";
 
 export interface GameContext {
   currentlyAttempting: Attempt;

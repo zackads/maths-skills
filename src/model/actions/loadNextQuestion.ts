@@ -1,6 +1,6 @@
 import { assign } from "xstate";
 import { GameContext, GameEvent } from "../GameMachine";
-import { createBlankAttempt } from "../Question";
+import { createBlankAttempt } from "../Attempt";
 
 export const loadNextQuestion = assign<GameContext, GameEvent>({
   currentlyAttempting: (context, _) =>
