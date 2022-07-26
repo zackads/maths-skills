@@ -7,15 +7,14 @@ import { getSkillById } from "../data/getSkillById";
 export const SkillNavCrumbs = () => {
   const router = useRouter();
   const path = new URL(router.asPath, "http://example.com").pathname;
-  const [skillId, activity] = path.split("/").slice(2);
+  const [skillId, activity] = path.split("/").slice(1);
 
   if (activity) {
     return (
       <Breadcrumbs aria-label="breadcrumb">
         <StyledLink href={"/"}>Home</StyledLink>
-        <StyledLink href={`/skills`}>Skills</StyledLink>
-        <StyledLink href={`/skills/${skillId}`}>
-          {skillId[0].toUpperCase() + skillId.slice(1)}
+        <StyledLink href={`/${skillId}`}>
+          {getSkillById(skillId).title}
         </StyledLink>
         <Typography color="text.primary">
           {activity[0].toUpperCase() + activity.slice(1)}
@@ -26,7 +25,6 @@ export const SkillNavCrumbs = () => {
     return (
       <Breadcrumbs aria-label="breadcrumb">
         <StyledLink href={"/"}>Home</StyledLink>
-        <StyledLink href={`/skills`}>Skills</StyledLink>
         <Typography color="text.primary">
           {getSkillById(skillId).title}
         </Typography>

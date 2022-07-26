@@ -9,14 +9,14 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { SkillNavCrumbs } from "../../../src/components/SkillNavCrumbs";
-import { Skill } from "../../../src/model/Skill";
+import { SkillNavCrumbs } from "../../src/components/SkillNavCrumbs";
+import { Skill } from "../../src/model/Skill";
 import { ParsedUrlQuery } from "querystring";
 import Link from "next/link";
 import { useState } from "react";
-import { MentalRepresentations } from "../../../src/components/MentalRepresentations";
-import { getSkillById } from "../../../src/data/getSkillById";
-import { getAllSkills } from "../../../src/data/getAllSkills";
+import { MentalRepresentations } from "../../src/components/MentalRepresentations";
+import { getSkillById } from "../../src/data/getSkillById";
+import { getAllSkills } from "../../src/data/getAllSkills";
 
 const SkillHome = ({
   skill,
