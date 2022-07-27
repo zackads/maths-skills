@@ -258,5 +258,65 @@
     "text": "Evaluate `sin(pi/12)`",
     "skillId": "sine_compound_angle_identity",
     "acceptedAnswers": ["(sqrt3-1)/(2sqrt2)"]
+  },
+  {
+    "text": "Find the least common denominator of `1/3`, `5/6` and `7/9`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["18"]
+  },
+  {
+    "text": "Find the least common denominator of `1/2`, `2/3` and `5/7`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["42"]
+  },
+  {
+    "text": "Find the least common denominator of `1/2`, `2/5`, `11/12` and `13/15`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["60"]
+  },
+  {
+    "text": "Find the least common denominator of `1/2` and `2/3`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["6"]
+  },
+  {
+    "text": "Find the least common denominator of `1/3` and `4/5`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["15"]
+  },
+  {
+    "text": "Find the least common denominator of `1/2`, `4/3` and `2/5`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["30"]
+  },
+  {
+    "text": "Find the least common denominator of `1/3` and `5/6`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["6"]
+  },
+  {
+    "text": "Find the least common denominator of `7/8` and `1/4`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["8"]
+  },
+  {
+    "text": "Find the least common denominator of `3/5`, `1/3` and `8/15`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["15"]
+  },
+  {
+    "text": "Find the least common denominator of `5/8` and `7/12`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["24"]
+  },
+  {
+    "text": "Find the least common denominator of `3/4`, `1/6` and `7/9`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["36"]
+  },
+  {
+    "text": "Find the least common denominator of `5/6`, `7/9` and `11/15`.",
+    "skillId": "least_common_denominator",
+    "acceptedAnswers": ["90"]
   }
 ]

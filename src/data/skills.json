@@ -21,6 +21,22 @@
     "id": "sine_compound_angle_identity",
     "title": "Compound angle identity for sine",
     "description": "We can evaluate more complicated sine functions using the identity `sin(A +- B) \\equiv sin A cos B +- cos A sin B`",
-    "prereqs": ["evaluating_sine", "evaluating_cosine"]
+    "prereqs": [
+      "evaluating_sine",
+      "evaluating_cosine",
+      "adding_unlike_fractions"
+    ]
+  },
+  {
+    "id": "adding_unlike_fractions",
+    "title": "Adding unlike fractions",
+    "description": "Unlike fractions have different denominators.  We can sum two unlike fractions by converting them to like fractions.",
+    "prereqs": ["least_common_denominator"]
+  },
+  {
+    "id": "least_common_denominator",
+    "title": "Finding the least common denominator",
+    "description": "Finding the least common denominator of two fractions is the first step in combining unlike fractions.",
+    "prereqs": []
   }
 ]
