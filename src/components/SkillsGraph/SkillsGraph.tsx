@@ -18,7 +18,7 @@ const DEFAULT_HEIGHT = 200;
 const elk = new Elk({
   defaultLayoutOptions: {
     "elk.algorithm": "force",
-    "elk.spacing.nodeNode": "1",
+    "elk.spacing.nodeNode": "2",
   },
 });
 
