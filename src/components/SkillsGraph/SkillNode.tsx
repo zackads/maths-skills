@@ -8,7 +8,7 @@ export const SkillNode = ({ data }: { data: { skill: Skill } }) => {
     <div style={{ cursor: "pointer" }}>
       <Handle type={"target"} position={Position.Bottom} hidden />
       <Handle type={"source"} position={Position.Bottom} hidden />
-      <Link href={`/${data.skill.id}`}>
+      <Link href={`/skills/${data.skill.id}`}>
         <Card sx={{ maxWidth: 200, maxHeight: 200 }}>
           <CardContent>
             <Typography variant={"h5"}>{data.skill.title}</Typography>

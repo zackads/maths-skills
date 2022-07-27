@@ -11,11 +11,11 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { StyledLink } from "../../src/components/SkillNavCrumbs";
 import React, { ChangeEvent, useState } from "react";
 import { getAllSkills } from "../../src/data/getAllSkills";
 import { Skill } from "../../src/model/Skill";
 import dynamic from "next/dynamic";
+import { StyledLink } from "../../src/components/StyledLink";
 const GameController = dynamic(
   () => import("../../src/controller/GameController"),
   {

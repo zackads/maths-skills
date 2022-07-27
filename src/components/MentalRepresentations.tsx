@@ -2,6 +2,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Stack,
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -11,7 +12,7 @@ import { Skill } from "../model/Skill";
 
 export const MentalRepresentations = ({ skill }: { skill: Skill }) => {
   return (
-    <>
+    <Stack spacing={2}>
       {skill.mentalRepresentations.map((mr, index) => {
         return (
           <Accordion key={index}>
@@ -40,6 +41,6 @@ export const MentalRepresentations = ({ skill }: { skill: Skill }) => {
           </Accordion>
         );
       })}
-    </>
+    </Stack>
   );
 };

@@ -4,6 +4,7 @@ import createEmotionCache from "../styles/theme/createEmotionCache";
 import { CacheProvider } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import lightTheme from "../styles/theme/lightTheme";
+import { Layout } from "../src/components/Layout";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -16,8 +17,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     >
       <CacheProvider value={clientSideEmotionCache}>
         <ThemeProvider theme={lightTheme}>
-          <CssBaseline />
-          <Component {...pageProps} />
+          <Layout>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </CacheProvider>
     </MathJaxContext>

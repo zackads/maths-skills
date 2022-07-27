@@ -1,14 +1,13 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { Skill } from "../../src/model/Skill";
+import { Skill } from "../../../src/model/Skill";
 import { ParsedUrlQuery } from "querystring";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getAllSkills } from "../../src/data/getAllSkills";
-import { getSkillById } from "../../src/data/getSkillById";
-import { SkillNavCrumbs } from "../../src/components/SkillNavCrumbs";
+import { getAllSkills } from "../../../src/data/getAllSkills";
+import { getSkillById } from "../../../src/data/getSkillById";
 const GameController = dynamic(
-  () => import("../../src/controller/GameController"),
+  () => import("../../../src/controller/GameController"),
   {
     ssr: false,
   }
@@ -21,25 +20,22 @@ const Practise = ({
   const { lives = "3", timeout = "10" } = router.query;
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <SkillNavCrumbs />
-        <Typography variant="h4" component="h1" gutterBottom>
-          {skill.title}
+    <Stack spacing={2}>
+      <Typography variant="h4" component="h1" gutterBottom>
+        {skill.title}
+      </Typography>
+      {skill.questions.length > 0 ? (
+        <GameController
+          skills={[skill]}
+          startingLives={Number(lives)}
+          timeoutSeconds={Number(timeout)}
+        />
+      ) : (
+        <Typography>
+          {"We didn't find any questions for this skill :-("}
         </Typography>
-        {skill.questions.length > 0 ? (
-          <GameController
-            skills={[skill]}
-            startingLives={Number(lives)}
-            timeoutSeconds={Number(timeout)}
-          />
-        ) : (
-          <Typography>
-            {"We didn't find any questions for this skill :-("}
-          </Typography>
-        )}
-      </Box>
-    </Container>
+      )}
+    </Stack>
   );
 };
 
