@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.1",
+    "@supabase/supabase-js": "^1.35.4",
     "@xstate/react": "^3.0.0",
     "better-react-mathjax": "^2.0.1",
     "elkjs": "^0.7.1",
