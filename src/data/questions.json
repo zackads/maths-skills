@@ -253,5 +253,10 @@
     "text": "Evaluate `tan(2pi)`",
     "skillId": "evaluating_tangent",
     "acceptedAnswers": ["0"]
+  },
+  {
+    "text": "Evaluate `sin(pi/12)`",
+    "skillId": "sine_compound_angle_identity",
+    "acceptedAnswers": ["(sqrt3-1)/(2sqrt2)"]
   }
 ]
