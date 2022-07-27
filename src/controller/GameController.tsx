@@ -9,18 +9,37 @@ import React from "react";
 import { MentalRepresentations } from "../components/MentalRepresentations";
 import { shuffle } from "../shuffle";
 import { Skill } from "../model/Skill";
+import { Question } from "../model/Question";
+
+const getSkillByQuestion = (skills: Skill[], question: Question) => {
+  return skills.find((skill) =>
+    skill.questions.map((q) => q.text).includes(question.text)
+  );
+};
 
 const GameController = ({
-  skill,
+  skills,
+  totalQuestions,
   timeoutSeconds,
   startingLives,
 }: {
-  skill: Skill;
+  skills: Skill[];
   timeoutSeconds: number;
   startingLives: number;
+  totalQuestions?: number;
 }) => {
+  const allQuestions = shuffle(skills.map((skill) => skill.questions).flat());
+  const questionsToPractise = allQuestions.slice(
+    0,
+    totalQuestions || allQuestions.length
+  );
+
   const [game, sendToGame] = useMachine(
-    createGameMachine(shuffle(skill.questions), timeoutSeconds, startingLives)
+    createGameMachine(questionsToPractise, timeoutSeconds, startingLives)
+  );
+  const currentSkill = getSkillByQuestion(
+    skills,
+    game.context.currentlyAttempting.question
   );
 
   switch (game.value) {
@@ -45,7 +64,7 @@ const GameController = ({
           livesRemaining={game.context.livesRemaining}
           onContinue={() => sendToGame({ type: "CONTINUE" })}
         >
-          <MentalRepresentations skill={skill} />
+          {currentSkill && <MentalRepresentations skill={currentSkill} />}
         </FeedbackView>
       );
     case "over":

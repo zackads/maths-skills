@@ -29,7 +29,7 @@ const Practise = ({
         </Typography>
         {skill.questions.length > 0 ? (
           <GameController
-            skill={skill}
+            skills={[skill]}
             startingLives={Number(lives)}
             timeoutSeconds={Number(timeout)}
           />
