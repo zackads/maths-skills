@@ -1,6 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import {
   Box,
+  Breadcrumbs,
   Button,
   Checkbox,
   Container,
@@ -10,8 +11,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { SkillNavCrumbs } from "../../src/components/SkillNavCrumbs";
-import { ChangeEvent, useState } from "react";
+import { StyledLink } from "../../src/components/SkillNavCrumbs";
+import React, { ChangeEvent, useState } from "react";
 import { getAllSkills } from "../../src/data/getAllSkills";
 import { Skill } from "../../src/model/Skill";
 import dynamic from "next/dynamic";
@@ -76,7 +77,12 @@ const InterleavedPractice = ({
         <Container maxWidth="sm">
           <Box sx={{ my: 4 }}>
             <Stack spacing={2}>
-              <SkillNavCrumbs />
+              <Breadcrumbs aria-label="breadcrumb">
+                <StyledLink href={"/"}>Home</StyledLink>
+                <Typography color="text.primary">
+                  Interleaved practice
+                </Typography>
+              </Breadcrumbs>
               <Typography variant="h4" component="h1" gutterBottom>
                 Interleaved practice
               </Typography>
@@ -85,25 +91,27 @@ const InterleavedPractice = ({
                 two or more skills.
               </Typography>
               <form onSubmit={() => setPlaying(true)}>
-                <FormGroup>
+                <Stack spacing={2}>
                   <Typography variant={"h5"} component={"h2"}>
                     Skills
                   </Typography>
-                  {skills.map((skill: Skill, index: number) => {
-                    return (
-                      <FormControlLabel
-                        key={index}
-                        label={skill.title}
-                        control={
-                          <Checkbox
-                            id={skill.id}
-                            checked={isSelected(skill.id)}
-                            onChange={handleCheck}
-                          />
-                        }
-                      />
-                    );
-                  })}
+                  <FormGroup>
+                    {skills.map((skill: Skill, index: number) => {
+                      return (
+                        <FormControlLabel
+                          key={index}
+                          label={skill.title}
+                          control={
+                            <Checkbox
+                              id={skill.id}
+                              checked={isSelected(skill.id)}
+                              onChange={handleCheck}
+                            />
+                          }
+                        />
+                      );
+                    })}
+                  </FormGroup>
                   <Typography gutterBottom>
                     Total number of questions
                   </Typography>
@@ -157,16 +165,17 @@ const InterleavedPractice = ({
                     }
                     tabIndex={2}
                   />
-                </FormGroup>
-                <p>Ready?</p>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant={"contained"}
-                  tabIndex={3}
-                >
-                  Start now
-                </Button>
+
+                  <p>Ready?</p>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant={"contained"}
+                    tabIndex={3}
+                  >
+                    Start now
+                  </Button>
+                </Stack>
               </form>
             </Stack>
           </Box>
@@ -176,13 +185,23 @@ const InterleavedPractice = ({
       return (
         <Container maxWidth="sm">
           <Box sx={{ my: 4 }}>
-            <SkillNavCrumbs />
-            <GameController
-              skills={preferences.skills}
-              totalQuestions={preferences.totalQuestions}
-              startingLives={preferences.lives}
-              timeoutSeconds={preferences.timeout}
-            />
+            <Stack spacing={2}>
+              <Breadcrumbs aria-label="breadcrumb">
+                <StyledLink href={"/"}>Home</StyledLink>
+                <Typography color="text.primary">
+                  Interleaved practice
+                </Typography>
+              </Breadcrumbs>
+              <Typography variant="h4" component="h1" gutterBottom>
+                Interleaved practice
+              </Typography>
+              <GameController
+                skills={preferences.skills}
+                totalQuestions={preferences.totalQuestions}
+                startingLives={preferences.lives}
+                timeoutSeconds={preferences.timeout}
+              />
+            </Stack>
           </Box>
         </Container>
       );
