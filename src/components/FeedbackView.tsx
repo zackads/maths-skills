@@ -7,7 +7,7 @@ import React from "react";
 import { Attempt, isCorrect } from "../model/Attempt";
 
 interface FeedbackViewProps {
-  children: React.ReactElement;
+  children: React.ReactNode;
   attempt: Attempt;
   livesRemaining: number;
   onContinue: () => void;
