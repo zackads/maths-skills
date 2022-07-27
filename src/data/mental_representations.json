@@ -18,5 +18,20 @@
     "title": "Imagining the gradient of the line",
     "skillId": "evaluating_tangent",
     "bodyMarkdown": "The tangent function of an angle is also the gradient of the line created by that angle with the horizontal.\n\nSo picture the shape of the line created by the angle and ask yourself what its gradient must be.\n\nFor example, we can tell instantly that the line y = x has a gradient of 1, so `tan pi/4 = 1`."
+  },
+  {
+    "title": "Reflection and horizontal translation",
+    "skillId": "evaluating_cotangent",
+    "bodyMarkdown": "When we draw the cotangent graph, we see that the cotangent function is identical to the tangent function that has been reflected and translated left by half a phase:\n\n![The cotangent graph](/assets/images/cot_tan_graph.png)\n\n"
+  },
+  {
+    "title": "Similar triangles",
+    "skillId": "evaluating_cotangent",
+    "bodyMarkdown": "Picture the unit circle with a radius drawn to a point `P`, where `alpha` is the angle created by the radius and the horizontal.\n\n![The unit circle with trig functions](/assets/images/unit_circle_similar_triangles.svg)\n\nThe cotangent is just the length of the side created by continuing the tangent line to the vertical.\n\nImaging 'plucking' the pink triangle, dilating it so that its hypotenuse equals the tangent, and overlaying it on the large green triangle.\n\nDoing this, you can see that cotangent is to theta as "
+  },
+  {
+    "title": "Recalling tan",
+    "skillId": "evaluating_cotangent",
+    "bodyMarkdown": "The cotangent function is just the reciprocal of `tan x`, i.e. `1\tan x`.  So if you can recall `tan x` you're most of the way there.  If you're struggling to recall `tan x`, do some deliberate practice of that skill."
   }
 ]
