@@ -4,27 +4,32 @@ import { useRouter } from "next/router";
 import { getSkillById } from "../data/getSkillById";
 import { StyledLink } from "./StyledLink";
 
+interface Breadcrumb {
+  path: string;
+  name: string;
+}
+
 export const NavCrumbs = () => {
   const router = useRouter();
-  const path = replaceSkillIdWithName(
-    new URL(router.asPath, "https://example.com").pathname.split("/")
-  ).slice(1);
-  const directories = path.slice(0, -1);
-  const currentFile = path.slice(-1)[0];
+  const breadcrumbs: Breadcrumb[] = toBreadcrumbs(router.asPath);
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      <StyledLink href={"/"}>Home</StyledLink>
-      {directories.map((dir, index) => {
-        return (
-          <StyledLink key={index} href={`/${dir}`}>
-            {toSentenceCase(dir)}
-          </StyledLink>
-        );
+      {breadcrumbs.map((crumb, index) => {
+        if (index < breadcrumbs.length - 1) {
+          return (
+            <StyledLink key={index} href={`/${crumb.path}`}>
+              {crumb.name}
+            </StyledLink>
+          );
+        } else {
+          return (
+            <Typography key={index} color="text.primary">
+              {crumb.name}
+            </Typography>
+          );
+        }
       })}
-      <Typography color="text.primary">
-        {toSentenceCase(currentFile)}
-      </Typography>
     </Breadcrumbs>
   );
 };
@@ -33,12 +38,22 @@ const toSentenceCase = (text: string) => {
   return text[0].toUpperCase() + text.slice(1);
 };
 
-const replaceSkillIdWithName = (path: string[]) => {
-  return path.map((element, i) => {
-    if (path[i - 1] === "skills") {
-      return getSkillById(element).title;
-    } else {
-      return element;
-    }
-  });
+const toBreadcrumbs = (path: string): Breadcrumb[] => {
+  const directories = path.split("/");
+
+  if (path === "/") {
+    return [{ path: "/", name: "Home" }];
+  } else {
+    return directories.map((d, i, arr) => {
+      if (d === "") {
+        return { path: d, name: "Home" };
+      }
+
+      if (arr[i - 1] === "skills") {
+        return { path: d, name: getSkillById(d).title };
+      }
+
+      return { path: d, name: toSentenceCase(d) };
+    });
+  }
 };
