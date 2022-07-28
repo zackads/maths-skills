@@ -10,7 +10,7 @@ export const NavCrumbs = () => {
     new URL(router.asPath, "https://example.com").pathname.split("/")
   ).slice(1);
   const directories = path.slice(0, -1);
-  const currentFile = path.slice(-1);
+  const currentFile = path.slice(-1)[0];
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
@@ -18,13 +18,19 @@ export const NavCrumbs = () => {
       {directories.map((dir, index) => {
         return (
           <StyledLink key={index} href={`/${dir}`}>
-            {dir[0].toUpperCase() + dir.slice(1)}
+            {toSentenceCase(dir)}
           </StyledLink>
         );
       })}
-      <Typography color="text.primary">{currentFile}</Typography>
+      <Typography color="text.primary">
+        {toSentenceCase(currentFile)}
+      </Typography>
     </Breadcrumbs>
   );
+};
+
+const toSentenceCase = (text: string) => {
+  return text[0].toUpperCase() + text.slice(1);
 };
 
 const replaceSkillIdWithName = (path: string[]) => {
