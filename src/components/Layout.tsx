@@ -10,7 +10,18 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <Container>
           <Toolbar>
             <MenuDrawer />
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography
+              variant="h6"
+              component="a"
+              noWrap
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
               Maths Skills
             </Typography>
           </Toolbar>
