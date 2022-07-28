@@ -78,7 +78,9 @@ const SkillHome = ({
           />
         </FormGroup>
         <p>Ready?</p>
-        <Link href={`/${skill.id}/practise?timeout=${timeout}&lives=${lives}`}>
+        <Link
+          href={`/skills/${skill.id}/practise?timeout=${timeout}&lives=${lives}`}
+        >
           <Button fullWidth variant={"contained"} tabIndex={3}>
             Start now
           </Button>
