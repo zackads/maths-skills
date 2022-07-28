@@ -11,7 +11,9 @@ interface Breadcrumb {
 
 export const NavCrumbs = () => {
   const router = useRouter();
-  const breadcrumbs: Breadcrumb[] = toBreadcrumbs(router.asPath);
+  const breadcrumbs: Breadcrumb[] = toBreadcrumbs(
+    stripParameters(router.asPath)
+  );
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
@@ -36,6 +38,10 @@ export const NavCrumbs = () => {
 
 const toSentenceCase = (text: string) => {
   return text[0].toUpperCase() + text.slice(1);
+};
+
+const stripParameters = (path: string): string => {
+  return path.split("?")[0];
 };
 
 const toBreadcrumbs = (path: string): Breadcrumb[] => {
