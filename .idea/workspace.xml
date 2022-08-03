@@ -4,90 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fde543c-ddd4-44e0-b63b-0fa4e9826943" name="Changes" comment="Add Prism to project">
-      <change afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/404.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/hello.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/interleaved/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/profile.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/skills/[skillId]/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/skills/[skillId]/practise.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/skills/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/cot_reflection_and_translation.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/cot_tan_graph.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/unit_circle.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/unit_circle_similar_triangles.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/unit_circle_trig_functions.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AttemptCard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AttemptingView.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CountdownTimer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FeedbackView.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IntroView.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MentalRepresentations.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuDrawer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavCrumbs.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QuestionCard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ScoreCard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SkillsGraph/FloatingEdge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SkillsGraph/SkillNode.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SkillsGraph/SkillsGraph.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SkillsGraph/SkillsGraph.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SkillsGraph/toEdges.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SkillsGraph/toNodes.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SkillsGraph/utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/StyledLink.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GameController.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/getAllSkills.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/getSkillById.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/mental_representations.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/questions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/scripts/prime_factorization.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/skills.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useAuth.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Attempt.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameMachine.test.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameMachine.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/MentalRepresentation.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Question.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Skill.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/actions/archiveCurrentQuestion.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/actions/clearPlayerAnswer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/actions/decrementLives.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/actions/loadNextQuestion.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/events/Continue.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/events/Input.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/events/Submit.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/timer/Timer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shuffle.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/theme/createEmotionCache.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/theme/lightTheme.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+    <list default="true" id="1fde543c-ddd4-44e0-b63b-0fa4e9826943" name="Changes" comment=".gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.properties" beforeDir="false" afterPath="$PROJECT_DIR$/system.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +47,18 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="JsBowerSettings">
     <bower-package value="" />
     <bower.json value="" />
@@ -149,6 +80,7 @@
     <property name="DatabaseDriversLRU" value="cockroach" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="JSON&#10;TypeScript JSX" />
@@ -271,6 +203,13 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="MaffsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="maffs.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.maffs.MaffsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Jest.GameMachine.Gets the first question correct and the second question incorrect" />
@@ -296,21 +235,7 @@
       <workItem from="1659208744020" duration="1289000" />
       <workItem from="1659268893131" duration="13000" />
       <workItem from="1659534612662" duration="764000" />
-      <workItem from="1659535565321" duration="67000" />
-    </task>
-    <task id="LOCAL-00031" summary="Add react-flow and ElkJS for visualising the skills graph">
-      <created>1658779772703</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1658779772703</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Component to visualise skills graph">
-      <created>1658779806565</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1658779806565</updated>
+      <workItem from="1659535565321" duration="1636000" />
     </task>
     <task id="LOCAL-00033" summary="Resupersicate temporary page files">
       <created>1658779904500</created>
@@ -641,7 +566,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659209307701</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Use Spring Boot to serve frontend">
+      <created>1659535651559</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1659535651560</updated>
+    </task>
+    <task id="LOCAL-00081" summary=".gitignore">
+      <created>1659535749460</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1659535749460</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,8 +600,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Move skills graph to sub-path on /skills" />
-    <MESSAGE value="Replace grab cursor with pointer" />
     <MESSAGE value="Reduce nesting" />
     <MESSAGE value="Set SkillsGraph height to stay within viewport" />
     <MESSAGE value="Add a mental representation for evaluating cosine" />
@@ -686,7 +623,9 @@
     <MESSAGE value="Make current page hyperlink-less in breadcrumbs" />
     <MESSAGE value="Remove query params from breadcrumbs" />
     <MESSAGE value="Add Prism to project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Prism to project" />
+    <MESSAGE value="Use Spring Boot to serve frontend" />
+    <MESSAGE value=".gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
