@@ -7,3 +7,6 @@ spring:
       min-idle: 2
       initial-size: 5
       remove-abandoned: true
+  data:
+    rest:
+      base-path: "/api"
