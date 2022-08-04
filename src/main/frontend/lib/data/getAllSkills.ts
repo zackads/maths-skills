@@ -1,7 +1,7 @@
 import { Skill } from "../model/Skill";
-import skillData from "../../src/data/skills.json";
-import mentalRepresentationData from "../../src/data/mental_representations.json";
-import questionData from "../../src/data/questions.json";
+import skillData from "../data/skills.json";
+import mentalRepresentationData from "../data/mental_representations.json";
+import questionData from "../data/questions.json";
 
 export const getAllSkills = (): Skill[] => {
   return skillData.map((s) => ({
