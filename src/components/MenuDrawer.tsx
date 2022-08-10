@@ -1,4 +1,3 @@
-import { useAuth } from "../hooks/useAuth";
 import React, { useState } from "react";
 import {
   Box,
@@ -20,7 +19,7 @@ import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export const MenuDrawer = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut } = { user: false, logOut: () => null };
   const [open, setOpen] = useState(false);
 
   const PageList = () => {
