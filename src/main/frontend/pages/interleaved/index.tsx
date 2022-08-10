@@ -12,12 +12,12 @@ import {
   Typography,
 } from "@mui/material";
 import React, { ChangeEvent, useState } from "react";
-import { getAllSkills } from "../../lib/data/getAllSkills";
-import { Skill } from "../../lib/model/Skill";
+import { getAllSkills } from "../../src/data/getAllSkills";
+import { Skill } from "../../src/model/Skill";
 import dynamic from "next/dynamic";
-import { StyledLink } from "../../lib/components/StyledLink";
+import { StyledLink } from "../../src/components/StyledLink";
 const GameController = dynamic(
-  () => import("../../lib/controller/GameController"),
+  () => import("../../src/controller/GameController"),
   {
     ssr: false,
   }

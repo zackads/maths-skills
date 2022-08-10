@@ -1,13 +1,13 @@
 import { Stack, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { Skill } from "../../../lib/model/Skill";
+import { Skill } from "../../../src/model/Skill";
 import { ParsedUrlQuery } from "querystring";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getAllSkills } from "../../../lib/data/getAllSkills";
-import { getSkillById } from "../../../lib/data/getSkillById";
+import { getAllSkills } from "../../../src/data/getAllSkills";
+import { getSkillById } from "../../../src/data/getSkillById";
 const GameController = dynamic(
-  () => import("../../../lib/controller/GameController"),
+  () => import("../../../src/controller/GameController"),
   {
     ssr: false,
   }

@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
-import Skills from "../lib/data/skills.json";
-import { SkillsGraph } from "../lib/components/SkillsGraph/SkillsGraph";
-import { Skill } from "../lib/model/Skill";
+import Skills from "../src/data/skills.json";
+import { SkillsGraph } from "../src/components/SkillsGraph/SkillsGraph";
+import { Skill } from "../src/model/Skill";
 import { Typography } from "@mui/material";
 import React from "react";
+import { SkillEntityControllerService  } from  '../client';
 
 const Home: NextPage<{ skills: Skill[] }> = ({ skills }) => {
   return (

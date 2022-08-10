@@ -7,13 +7,13 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Skill } from "../../../lib/model/Skill";
+import { Skill } from "../../../src/model/Skill";
 import { ParsedUrlQuery } from "querystring";
 import Link from "next/link";
 import { useState } from "react";
-import { MentalRepresentations } from "../../../lib/components/MentalRepresentations";
-import { getSkillById } from "../../../lib/data/getSkillById";
-import { getAllSkills } from "../../../lib/data/getAllSkills";
+import { MentalRepresentations } from "../../../src/components/MentalRepresentations";
+import { getSkillById } from "../../../src/data/getSkillById";
+import { getAllSkills } from "../../../src/data/getAllSkills";
 import { MathJax } from "better-react-mathjax";
 
 const SkillHome = ({
