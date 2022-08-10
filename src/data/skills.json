@@ -38,5 +38,11 @@
     "title": "Finding the least common denominator",
     "description": "Finding the least common denominator of two fractions is the first step in combining unlike fractions.",
     "prereqs": []
+  },
+  {
+    "id": "derivative_formulae",
+    "title": "Derivative formulae",
+    "description": "Getting fluent with recalling the main derivatives.",
+    "prereqs": []
   }
 ]

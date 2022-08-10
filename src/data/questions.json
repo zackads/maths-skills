@@ -318,5 +318,65 @@
     "text": "Find the least common denominator of `5/6`, `7/9` and `11/15`.",
     "skillId": "least_common_denominator",
     "acceptedAnswers": ["90"]
+  },
+  {
+    "text": "`d/dx a` for some constant `a`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["0"]
+  },
+  {
+    "text": "`d/dx x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["1"]
+  },
+  {
+    "text": "`d/dx x^n`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["nx^(n-1)"]
+  },
+  {
+    "text": "`d/dx 1/x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["-x^-2"]
+  },
+  {
+    "text": "`d/dx sqrt x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["1/2x^(-1/2)"]
+  },
+  {
+    "text": "`d/dx e^x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["e^x"]
+  },
+  {
+    "text": "`d/dx a^x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["a^x ln a", "a^xlna"]
+  },
+  {
+    "text": "`d/dx ln x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["1/x"]
+  },
+  {
+    "text": "`d/dx log_a x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["1/(x ln a)", "1/(ln(a) x)", "1/(xlna)"]
+  },
+  {
+    "text": "`d/dx sin x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["cos x", "cos(x)", "cosx"]
+  },
+  {
+    "text": "`d/dx cos x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["-sin x", "-sin(x)", "-sinx"]
+  },
+  {
+    "text": "`d/dx tan x`",
+    "skillId": "derivative_formulae",
+    "acceptedAnswers": ["sec^2x", "1/cos^2x", "cos^(-2x)", "sec^2(x)"]
   }
 ]
