@@ -77,7 +77,3 @@ tasks.register('buildFrontend', NpmTask) {
     dependsOn publishOpenApiSpec, npmInstall
     args = ['run', 'build', '--', '-o', '../resources/static']
 }
-
-tasks.named("jar") {
-    enabled = false
-}

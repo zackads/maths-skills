@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fde543c-ddd4-44e0-b63b-0fa4e9826943" name="Changes" comment="Specify Java version">
+    <list default="true" id="1fde543c-ddd4-44e0-b63b-0fa4e9826943" name="Changes" comment=".gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.properties" beforeDir="false" afterPath="$PROJECT_DIR$/system.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +235,14 @@
       <workItem from="1659208744020" duration="1289000" />
       <workItem from="1659268893131" duration="13000" />
       <workItem from="1659534612662" duration="764000" />
-      <workItem from="1659535565321" duration="2637000" />
+      <workItem from="1659535565321" duration="1636000" />
+    </task>
+    <task id="LOCAL-00033" summary="Resupersicate temporary page files">
+      <created>1658779904500</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1658779904500</updated>
     </task>
     <task id="LOCAL-00034" summary="Statically generate skills and practise pages">
       <created>1658822904672</created>
@@ -573,14 +580,7 @@
       <option name="project" value="LOCAL" />
       <updated>1659535749460</updated>
     </task>
-    <task id="LOCAL-00082" summary="Specify Java version">
-      <created>1659537352442</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1659537352442</updated>
-    </task>
-    <option name="localTasksCounter" value="83" />
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,6 +600,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Reduce nesting" />
     <MESSAGE value="Set SkillsGraph height to stay within viewport" />
     <MESSAGE value="Add a mental representation for evaluating cosine" />
     <MESSAGE value="Add evaluating the tangent function skill" />
@@ -624,8 +625,7 @@
     <MESSAGE value="Add Prism to project" />
     <MESSAGE value="Use Spring Boot to serve frontend" />
     <MESSAGE value=".gitignore" />
-    <MESSAGE value="Specify Java version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Specify Java version" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
